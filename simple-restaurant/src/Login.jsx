@@ -2,6 +2,14 @@ import loginImage from "./Images/Login-Image.png";
 import logo from "./Images/Logo.png";
 
 export function Login() {
+    const handlesubmit = (e) => {
+        e.preventDefault();
+
+        //Llamada a la API para hacer el login
+        //Validacion de datos
+        //Redirección a la pagina de inicio
+    };
+
     return (
         <section className="login-main-container">
             <div className="img-login">
@@ -11,7 +19,7 @@ export function Login() {
             <article className="form-login">
                 <img src={logo} alt="Logo" />
                 <h1>Acceso</h1>
-                <form>
+                <form onSubmit={handlesubmit}>
                     <label htmlFor="">Nombre del usuario</label>
                     <input
                         type="text"
@@ -19,7 +27,10 @@ export function Login() {
                     />
 
                     <label htmlFor="">Contraseña</label>
-                    <input type="text" placeholder="Introduce tú contraseña" />
+                    <input
+                        type="password"
+                        placeholder="Introduce tú contraseña"
+                    />
 
                     <button>Entrar</button>
                 </form>

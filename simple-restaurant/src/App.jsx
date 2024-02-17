@@ -3,6 +3,11 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
+/**
+ * Aqui la libreria router y hacer el routing entre
+ * pagina de login y la pagina principal
+ */
+
 function App() {
     const [count, setCount] = useState(0);
 

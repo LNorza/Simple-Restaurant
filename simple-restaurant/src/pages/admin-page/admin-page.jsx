@@ -1,5 +1,10 @@
 import logo from "../../assets/Images/Logo-icon.svg";
 import user from "../../assets/Images/user.svg";
+import category from "../../assets/Images/Category.svg";
+import commands from "../../assets/Images/Personal.svg";
+import inventory from "../../assets/Images/inventario.svg";
+import personal from "../../assets/Images/muliple-users.svg";
+import analitycs from "../../assets/Images/analitycs.svg";
 import "./admin-page.css";
 
 export function AdminPage() {
@@ -20,7 +25,25 @@ export function AdminPage() {
                 </div>
             </div>
 
-            <div className="admin-page-aside"></div>
+            <div className="admin-page-aside">
+                <ul>
+                    <li className="category-menu">
+                        <img src={category} alt="" />
+                    </li>
+                    <li>
+                        <img src={commands} alt="" />
+                    </li>
+                    <li>
+                        <img src={inventory} alt="" />
+                    </li>
+                    <li>
+                        <img src={personal} alt="" />
+                    </li>
+                    <li>
+                        <img src={analitycs} alt="" />
+                    </li>
+                </ul>
+            </div>
 
             <div className="admin-page-main"></div>
         </div>

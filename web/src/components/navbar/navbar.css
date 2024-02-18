@@ -1,0 +1,65 @@
+/* Aside Menu */
+.admin-page-aside {
+	background-color: var(--white);
+	width: 100px;
+	height: 90vh;
+	padding: 15px;
+	border-top: 1px solid #e9e7e7;
+}
+
+.admin-page-aside ul {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	list-style: none;
+}
+
+.admin-page-aside ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	/* background-color: var(--DarkSlateBlue); */
+	background-color: #f5f5f5;
+	transition: background-color 0.3s ease;
+}
+
+.admin-page-aside ul li:hover {
+	background-color: var(--SlateGray);
+	filter: brightness(85%);
+}
+
+.admin-page-aside ul li:active {
+	background-color: var(--DarkSlateBlue);
+}
+
+.admin-page-aside ul .category-menu {
+	background-color: var(--DarkSlateBlue);
+}
+
+/* .router-link-exact-active,
+nav a.router-link-exact-active:hover {
+	color: var(--white);
+	background-color: var(--white);
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.router-link-exact-active img,
+nav a.router-link-exact-active:hover img {
+	filter: none;
+}
+
+nav a:not(.router-link-exact-active):hover {
+	transition: all 0.5s ease-in-out;
+	color: var(--white);
+	background-color: var(--white);
+	filter: brightness(85%);
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+nav a:not(.router-link-exact-active):hover img {
+	filter: none;
+} */

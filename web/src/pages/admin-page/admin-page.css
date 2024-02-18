@@ -1,0 +1,14 @@
+.admin-page {
+	background-color: #fbf5f1;
+	height: 100vh;
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: 110px;
+	margin-top: -500px;
+	gap: 90px;
+	width: 90%;
+}

@@ -1,0 +1,23 @@
+.card {
+	background-color: var(--white);
+	border-radius: 15px;
+	padding: 30px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: 230px;
+	width: 230px;
+}
+
+.card-image {
+	height: 140px;
+	object-fit: cover;
+	border-radius: 15px;
+}
+
+.card-text {
+	font-size: 0.8rem;
+	font-weight: 500;
+	margin-top: 10px;
+	color: #294b69;
+}

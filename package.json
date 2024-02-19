@@ -1,0 +1,12 @@
+{
+	"name": "SimpleRestaurant",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"install": "cd api && npm i && cd ../web && npm i"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}

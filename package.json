@@ -1,5 +1,5 @@
 {
-	"name": "SimpleRestaurant",
+	"name": "simplerestaurant",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -7,6 +7,6 @@
 		"install": "cd api && npm i && cd ../web && npm i"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "I.S.C Alan Meza Valenzuela",
 	"license": "ISC"
 }

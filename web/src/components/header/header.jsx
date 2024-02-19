@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import logo from "../../assets/Images/Logo-icon.svg";
 import user from "../../assets/Images/user.svg";
 import "./header.css";
@@ -7,7 +8,9 @@ export function Header() {
 		<div className="admin-page-container">
 			<div className="admin-page-header">
 				<div className="logo-container">
-					<img src={logo} alt="simpleRestaurant" />
+					<Link to="/home">
+						<img src={logo} alt="simpleRestaurant" />
+					</Link>
 					<h1>SimpleRestaurant</h1>
 				</div>
 

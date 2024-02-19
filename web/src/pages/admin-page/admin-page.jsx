@@ -13,13 +13,26 @@ export function AdminPage() {
 			<Header />
 			<Navbar />
 			<div className="card-container">
-				<MenuCard imagePath={command} text="Gestión de comandas" />
-				<MenuCard imagePath={inventory} text="Gestión de inventario" />
+				<MenuCard
+					imagePath={command}
+					text="Gestión de comandas"
+					direction="/commands"
+				/>
+				<MenuCard
+					imagePath={inventory}
+					text="Gestión de inventario"
+					direction="/inventory"
+				/>
 				<MenuCard
 					imagePath={multipleUsers}
 					text="Gestión de personal"
+					direction="/personal"
 				/>
-				<MenuCard imagePath={analitycs} text="Estadísticas" />
+				<MenuCard
+					imagePath={analitycs}
+					text="Estadísticas"
+					direction="/analitycs"
+				/>
 			</div>
 		</div>
 	);

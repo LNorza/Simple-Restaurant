@@ -6,7 +6,9 @@ const MenuCard = ({imagePath, text, direction}) => {
 	return (
 		<div className="card">
 			<Link to={direction}>
-				<img src={imagePath} alt="Card" className="card-image" />
+				<div>
+					<img src={imagePath} alt="Card" className="card-image" />
+				</div>
 				<div className="card-text">{text}</div>
 			</Link>
 		</div>

@@ -9,6 +9,11 @@
 	width: 230px;
 }
 
+.card:hover {
+	transition: filter 0.5s ease;
+	filter: brightness(85%);
+}
+
 .card-image {
 	height: 140px;
 	object-fit: cover;
@@ -16,6 +21,7 @@
 }
 
 .card-text {
+	align-content: center;
 	font-size: 0.8rem;
 	font-weight: 500;
 	margin-top: 10px;

@@ -1,5 +1,5 @@
 /* Aside Menu */
-.admin-page-aside {
+.navbar {
 	background-color: var(--white);
 	width: 6%;
 	height: 90vh;
@@ -7,7 +7,7 @@
 	border-top: 1px solid #e9e7e7;
 }
 
-.admin-page-aside ul {
+.navbar ul {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -15,7 +15,7 @@
 	list-style: none;
 }
 
-.admin-page-aside ul li {
+.navbar ul li {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -26,16 +26,24 @@
 	transition: background-color 0.3s ease;
 }
 
-.admin-page-aside ul li:hover {
+.navbar ul .category-menu img {
+	filter: brightness(200%);
+}
+
+.navbar ul li:hover {
 	background-color: var(--SlateGray);
 	filter: brightness(85%);
 }
 
-.admin-page-aside ul li:active {
+.navbar ul li:hover img {
+	filter: brightness(200%);
+}
+
+.navbar ul li:active {
 	background-color: var(--DarkSlateBlue);
 }
 
-.admin-page-aside ul .category-menu {
+.navbar ul .category-menu {
 	background-color: var(--DarkSlateBlue);
 }
 

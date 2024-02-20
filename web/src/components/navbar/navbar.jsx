@@ -1,26 +1,41 @@
-import {Link} from "react-router-dom";
-import category from "../../assets/Images/Category.svg";
-import commands from "../../assets/Images/Personal.svg";
+import {Link, useLocation} from "react-router-dom";
+import dashboard from "../../assets/Images/Dashboard.svg";
+import commands from "../../assets/Images/Commands.svg";
 import inventory from "../../assets/Images/inventario.svg";
 import personal from "../../assets/Images/muliple-users.svg";
 import analitycs from "../../assets/Images/analitycs.svg";
 import "./navbar.css";
 
 const Navbar = () => {
+	const location = useLocation();
 	return (
-		<div className="admin-page-aside">
+		<div className="navbar">
 			<ul>
-				<li className="category-menu">
+				<li
+					className={
+						location.pathname === "/home" ? "category-menu" : ""
+					}
+				>
 					<Link to="/home">
-						<img src={category} alt="" />
+						<img src={dashboard} alt="" />
 					</Link>
 				</li>
-				<li>
+				<li
+					className={
+						location.pathname === "/commands" ? "category-menu" : ""
+					}
+				>
 					<Link to="/commands">
 						<img src={commands} alt="" />
 					</Link>
 				</li>
-				<li>
+				<li
+					className={
+						location.pathname === "/inventory"
+							? "category-menu"
+							: ""
+					}
+				>
 					<Link to="/inventory">
 						<img src={inventory} alt="" />
 					</Link>
@@ -41,80 +56,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// import React from "react";
-// import {Link, useLocation} from "react-router-dom";
-// import category from "../../assets/Images/Category.svg";
-// import commands from "../../assets/Images/Personal.svg";
-// import inventory from "../../assets/Images/inventario.svg";
-// import personal from "../../assets/Images/muliple-users.svg";
-// import analitycs from "../../assets/Images/analitycs.svg";
-// import "./navbar.css";
-
-// const Navbar = () => {
-// 	const location = useLocation();
-
-// 	return (
-// 		<nav className="admin-page-aside">
-// 			<ul>
-// 				<li
-// 					className={
-// 						location.pathname === "/home"
-// 							? "router-link-exact-active"
-// 							: ""
-// 					}
-// 				>
-// 					<Link to="/home">
-// 						<img src={category} alt="" />
-// 					</Link>
-// 				</li>
-// 				<li
-// 					className={
-// 						location.pathname === "/commands"
-// 							? "router-link-exact-active"
-// 							: ""
-// 					}
-// 				>
-// 					<Link to="/commands">
-// 						<img src={commands} alt="" />
-// 					</Link>
-// 				</li>
-// 				<li
-// 					className={
-// 						location.pathname === "/inventory"
-// 							? "router-link-exact-active"
-// 							: ""
-// 					}
-// 				>
-// 					<Link to="/inventory">
-// 						<img src={inventory} alt="" />
-// 					</Link>
-// 				</li>
-// 				<li
-// 					className={
-// 						location.pathname === "/personal"
-// 							? "router-link-exact-active"
-// 							: ""
-// 					}
-// 				>
-// 					<Link to="/personal">
-// 						<img src={personal} alt="" />
-// 					</Link>
-// 				</li>
-// 				<li
-// 					className={
-// 						location.pathname === "/analytics"
-// 							? "router-link-exact-active"
-// 							: ""
-// 					}
-// 				>
-// 					<Link to="/analytics">
-// 						<img src={analitycs} alt="" />
-// 					</Link>
-// 				</li>
-// 			</ul>
-// 		</nav>
-// 	);
-// };
-
-// export default Navbar;

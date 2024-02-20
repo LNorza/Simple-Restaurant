@@ -2,3 +2,8 @@
 	background-color: #fbf5f1;
 	height: 100vh;
 }
+
+.header-container {
+	height: 10vh;
+	padding: 0px;
+}

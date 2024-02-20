@@ -3,11 +3,14 @@ import Navbar from "../../components/navbar/navbar.jsx";
 import "./commands.css";
 
 export function CommandsPage() {
-    return (
-        <div className="commands-page">
-            <div>
-                <Navbar />
-            </div>
-        </div>
-    );
+	return (
+		<div className="commands-page">
+			<div className="header-container">
+				<Header />
+			</div>
+			<div>
+				<Navbar />
+			</div>
+		</div>
+	);
 }

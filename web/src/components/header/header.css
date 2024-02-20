@@ -1,24 +1,26 @@
-.admin-page-header {
+.header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background-color: var(--white);
 	padding: 7px 20px 7px 20px;
 	color: var(--LogoColor);
+	height: 100%;
+	width: 100%;
 }
 
-.logo-container {
+.logo {
 	display: flex;
 	align-items: center;
 	gap: 20px;
 }
 
-.logo-container img {
-	width: px;
+.logo img {
+	width: 50px;
 	height: 50px;
 }
 
-.admin-page-header .user {
+.header .user {
 	display: flex;
 	align-items: center;
 	margin-right: 30px;
@@ -27,14 +29,14 @@
 	font-weight: 600;
 }
 
-.admin-page-header .user img {
+.header .user img {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
 	margin-right: 10px;
 }
 
-.admin-page-header .user-info .puesto {
+.header .user-info .puesto {
 	padding-top: 3px;
 	font-size: 0.85rem;
 	font-weight: 400;

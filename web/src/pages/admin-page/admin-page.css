@@ -3,9 +3,15 @@
 	height: 100vh;
 }
 
+.header-container {
+	height: 10vh;
+	padding: 0px;
+}
+
 .menu-container {
 	display: flex;
 	justify-content: space-between;
+	height: 90vh;
 }
 
 .card-container {

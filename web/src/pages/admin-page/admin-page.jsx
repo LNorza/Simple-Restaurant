@@ -5,22 +5,24 @@ import {arrayMenu} from "../../utilities/arrayCards.js";
 import "./admin-page.css";
 
 export function AdminPage() {
-    return (
-        <div className="admin-page">
-            <Header />
+	return (
+		<div className="admin-page">
+			<Header />
 
-            <Navbar />
+			<div className="menu-container">
+				<Navbar />
 
-            <div className="card-container">
-                {arrayMenu.map(({imagePath, text, direction}) => (
-                    <MenuCard
-                        key={text}
-                        imagePath={imagePath}
-                        text={text}
-                        direction={direction}
-                    />
-                ))}
-            </div>
-        </div>
-    );
+				<div className="card-container">
+					{arrayMenu.map(({imagePath, text, direction}) => (
+						<MenuCard
+							key={text}
+							imagePath={imagePath}
+							text={text}
+							direction={direction}
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }

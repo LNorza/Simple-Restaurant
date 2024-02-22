@@ -1,3 +1,8 @@
+a {
+    color: var(--LogoColor);
+    text-decoration: none;
+}
+
 .header {
     display: flex;
     justify-content: space-between;

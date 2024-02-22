@@ -72,11 +72,62 @@
     padding: 15px;
     margin-top: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: 700;
     font-size: 1.3rem;
     background-color: var(--buttonBlue);
     color: var(--white);
     cursor: pointer;
     transition: 0.3s;
+}
+
+.form-login button:hover {
+    background-color: var(--DarkSlateBlue);
+    font-size: 1.4rem;
+}
+
+@media (min-width: 320px) and (max-width: 426px) {
+    .login-main-container {
+        width: 100%;
+        border-radius: 20px;
+        margin: 5px;
+    }
+
+    .img-login {
+        display: none;
+    }
+
+    .form-login {
+        width: 100%;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .form-login img {
+        width: 100%;
+    }
+
+    .form-login h1 {
+        font-size: 1.3rem;
+    }
+
+    .form-login form {
+        font-size: 1.2rem;
+    }
+
+    .form-login input {
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .form-login button {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        padding: 10px;
+    }
 }

@@ -1,20 +1,24 @@
 :root {
-    --LightSlateGray: #6f8cae;
-    --SlateGray: #587697;
-    --DarkSlateBlue: #416180;
-    --DarkSlateGray: #294b69;
-    --DarkerSlateGray: #123552;
-    --MidnightBlue: #0a1e2f;
-    --LogoColor: #1a355c;
-    --buttonBlue: #22345e;
-    --white: #ffffff;
+	--LightSlateGray: #6f8cae;
+	--SlateGray: #587697;
+	--DarkSlateBlue: #416180;
+	--DarkSlateGray: #294b69;
+	--DarkerSlateGray: #123552;
+	--MidnightBlue: #0a1e2f;
+	--LogoColor: #1a355c;
+	--buttonBlue: #22345e;
+	--white: #ffffff;
+	--white-smoke: #f5f5f5;
+	--light-grey: #f7f8fa;
+	--Dim-grey: #505470;
+	--Background: #f8f8f7;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 body {
-    font-family: "Inter", sans-serif;
+	font-family: "Inter", sans-serif;
 }

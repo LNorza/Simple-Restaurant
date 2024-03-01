@@ -1,4 +1,4 @@
 .analitycs-page {
-    background-color: #fbf5f1;
-    height: 100vh;
+	background-color: var(--Background);
+	height: 100vh;
 }

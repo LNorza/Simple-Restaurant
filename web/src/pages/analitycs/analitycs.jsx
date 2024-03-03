@@ -31,7 +31,7 @@ export function AnalitycsPage() {
                         </div>
                     </div>
 
-                    <div className="card-container">
+                    <div className="analitycs-card-container">
                         {arrayAnalitycs.map(({title, value, percentage}) => (
                             <DefaultCard
                                 key={title}

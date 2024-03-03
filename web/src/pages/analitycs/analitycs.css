@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-.card-container {
+.analitycs-card-container {
     display: grid;
     width: 98%;
     grid-template-columns: repeat(4, 1fr);

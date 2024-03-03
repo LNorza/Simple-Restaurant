@@ -11,15 +11,17 @@ export function AdminPage() {
 
             <div className="menu-container">
                 <Navbar />
-                <div className="card-container">
-                    {arrayMenu.map(({imagePath, text, direction}) => (
-                        <MenuCard
-                            key={text}
-                            imagePath={imagePath}
-                            text={text}
-                            direction={direction}
-                        />
-                    ))}
+                <div className="principal-container">
+                    <div className="card-container">
+                        {arrayMenu.map(({imagePath, text, direction}) => (
+                            <MenuCard
+                                key={text}
+                                imagePath={imagePath}
+                                text={text}
+                                direction={direction}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

@@ -89,15 +89,21 @@
 	gap: 20px;
 }
 
-.boton {
-	width: 34px;
-	height: 34px;
+.button {
+	width: 30px;
+	height: 30px;
 	border: none;
 	border-radius: 5px;
 	background-color: var(--white);
 	color: var(--dim-gray);
 	cursor: pointer;
 }
-.boton:hover {
+
+.button img {
+	width: 28px;
+	height: 28px;
+}
+
+.button:hover {
 	filter: brightness(110%);
 }

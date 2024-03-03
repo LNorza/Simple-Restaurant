@@ -3,10 +3,15 @@ import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import edit from "../../assets/Images/edit.svg";
 import trash from "../../assets/Images/trash.svg";
+import EmployeeModal from "../../components/employee-modal/employee-modal.jsx";
 import "./personal.css";
 
 export function PersonalPage() {
 	const [state, setState] = useState([]);
+	const [showModal, setShowModal] = useState(false);
+	const [selectedEmployee, setSelectedEmployee] = useState(null);
+	const [modalAction, setModalAction] = useState("edit"); // Editar por defecto
+
 	async function fetchData() {
 		const result = await fetch(
 			"https://simplerestaurant-api-production.up.railway.app/api/employees"
@@ -18,6 +23,18 @@ export function PersonalPage() {
 		fetchData();
 	}, []);
 	console.log(state);
+
+	function handleOpenModal(employeeID, action) {
+		setSelectedEmployee(employeeID);
+		setModalAction(action);
+		setShowModal(true);
+		console.log(`Modal abierto ${employeeID}`);
+	}
+
+	function handleCloseModal() {
+		setShowModal(false);
+		setSelectedEmployee(null);
+	}
 
 	return (
 		<div className="personal-page">
@@ -50,10 +67,26 @@ export function PersonalPage() {
 										<span>{employee.RFC}</span>
 										<span>{employee.Telefono}</span>
 										<div className="boton-container">
-											<button className="boton">
+											<button
+												className="button"
+												onClick={() =>
+													handleOpenModal(
+														employee.IDEmpleado,
+														"edit"
+													)
+												}
+											>
 												<img src={edit} alt="" />
 											</button>
-											<button className="boton">
+											<button
+												className="button"
+												onClick={() =>
+													handleOpenModal(
+														employee.IDEmpleado,
+														"delete"
+													)
+												}
+											>
 												<img src={trash} alt="" />
 											</button>
 										</div>
@@ -64,6 +97,12 @@ export function PersonalPage() {
 					</div>
 				</div>
 			</div>
+			<EmployeeModal
+				isOpen={showModal}
+				onClose={handleCloseModal}
+				employeeID={selectedEmployee}
+				action={modalAction}
+			/>
 		</div>
 	);
 }

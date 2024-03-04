@@ -1,20 +1,23 @@
 .admin-page {
-    background-color: #f8f8f7;
-    height: 100vh;
+	background-color: #f8f8f7;
+	height: 100vh;
 }
 
 .menu-container {
-    display: flex;
-    gap: 20px;
-    height: 90vh;
+	display: flex;
+	gap: 20px;
+	height: 90vh;
+}
+
+.principal-container {
+	margin-top: 2%;
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 2%;
-    margin: 10px;
-    gap: 90px;
-    max-height: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 10px;
+	gap: 90px;
+	max-height: 500px;
 }

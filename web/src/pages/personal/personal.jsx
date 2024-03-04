@@ -101,7 +101,6 @@ export function PersonalPage() {
 				isOpen={showModal}
 				onClose={handleCloseModal}
 				employeeID={selectedEmployee}
-				action={modalAction}
 			/>
 		</div>
 	);

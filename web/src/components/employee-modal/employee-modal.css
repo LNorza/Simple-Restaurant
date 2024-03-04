@@ -53,3 +53,14 @@
 	border: 1px solid var(--SlateGray);
 	filter: brightness(110%);
 }
+
+.form-input {
+	height: 40px;
+	border: 1px solid var(--light-gray);
+	border-radius: 3px;
+	margin-left: 5px;
+	padding: 10px;
+}
+.form-input::placeholder {
+	color: var(--light-steel-blue);
+}

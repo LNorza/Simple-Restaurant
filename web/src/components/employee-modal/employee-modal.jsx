@@ -1,8 +1,23 @@
 import React from "react";
+import {useEffect, useState} from "react";
 import "./employee-modal.css";
 
-function EmployeeModal({isOpen, onClose, employeeID, action}) {
+function EmployeeModal({isOpen, onClose, employeeID}) {
 	if (!isOpen) return null;
+	const [state, setState] = useState([]);
+
+	async function fetchData() {
+		const result = await fetch(
+			"https://simplerestaurant-api-production.up.railway.app/api/employees/" +
+				`${employeeID}`
+		).then((response) => response.json());
+		setState(result);
+	}
+
+	useEffect(() => {
+		fetchData();
+	}, []);
+	console.log(state);
 
 	return (
 		<div className="modal">
@@ -12,8 +27,12 @@ function EmployeeModal({isOpen, onClose, employeeID, action}) {
 					Editar empleado
 					<button onClick={onClose}>✖</button>
 				</div>
-				<form>
-					<p>Empleado ID: {employeeID}</p>
+				<div>
+					<input
+						type="text"
+						value={employeeID}
+						className="form-input"
+					/>
 					<div class="form-button-container">
 						<button
 							type="submit"
@@ -23,7 +42,7 @@ function EmployeeModal({isOpen, onClose, employeeID, action}) {
 							Actualizar empleado
 						</button>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	);

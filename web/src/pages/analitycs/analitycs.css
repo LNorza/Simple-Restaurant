@@ -1,18 +1,38 @@
 .analitycs-page {
-    background-color: var(--Background);
-    height: 100vh;
+	background-color: var(--Background);
+	height: 100vh;
 }
 
 .analitycs-card-container {
-    display: grid;
-    width: 98%;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+	display: grid;
+	width: 98%;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 15px;
 }
 
 .chart-container {
-    max-width: 98%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+	max-width: 98%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+}
+
+.date-picker {
+	margin-right: 7px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.analitycs-table-text {
+	margin: 0px 0px 0px 25px;
+}
+
+.analitycs-table-container {
+	background-color: var(--white);
+	height: 70%;
+	width: 98.2%;
+	margin: 0px 0px 35px;
+	padding: 0px 0px 35px;
+	border-radius: 12px;
+	border: 1px solid rgba(0, 0, 0, 0.091);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }

@@ -1,12 +1,12 @@
 .admin-page {
-	background-color: #f8f8f7;
 	height: 100vh;
+	min-height: 100vh;
 }
 
 .menu-container {
 	display: flex;
 	gap: 20px;
-	height: 90vh;
+	background-color: #f8f8f7;
 }
 
 .principal-container {

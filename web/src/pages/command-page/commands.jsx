@@ -18,7 +18,7 @@ export function CommandsPage() {
 	return (
 		<div className="commands-page">
 			<Header />
-			<div>
+			<div className="menu-container">
 				<Navbar />
 			</div>
 		</div>

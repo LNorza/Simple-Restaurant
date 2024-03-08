@@ -3,14 +3,13 @@ import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import edit from "../../assets/Images/edit.svg";
 import trash from "../../assets/Images/trash.svg";
-import EmployeeModal from "../../components/employee-modal/employee-modal.jsx";
 import "./personal.css";
+import {EmployeeModal} from "../../components/employee-modal/EmployeeModal.jsx";
 
 export function PersonalPage() {
     const [state, setState] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
-    const [modalAction, setModalAction] = useState("edit"); // Editar por defecto
 
     async function fetchData() {
         const result = await fetch(
@@ -22,13 +21,10 @@ export function PersonalPage() {
     useEffect(() => {
         fetchData();
     }, []);
-    console.log(state);
 
-    function handleOpenModal(employeeID, action) {
+    function handleOpenModal(employeeID) {
         setSelectedEmployee(employeeID);
-        setModalAction(action);
         setShowModal(true);
-        console.log(`Modal abierto ${employeeID}`);
     }
 
     function handleCloseModal() {
@@ -71,8 +67,7 @@ export function PersonalPage() {
                                                 className="button"
                                                 onClick={() =>
                                                     handleOpenModal(
-                                                        employee.IDEmpleado,
-                                                        "edit"
+                                                        employee.IDEmpleado
                                                     )
                                                 }
                                             >
@@ -82,8 +77,7 @@ export function PersonalPage() {
                                                 className="button"
                                                 onClick={() =>
                                                     handleOpenModal(
-                                                        employee.IDEmpleado,
-                                                        "delete"
+                                                        employee.IDEmpleado
                                                     )
                                                 }
                                             >

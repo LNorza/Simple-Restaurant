@@ -37,49 +37,55 @@ export function EmployeeModal({isOpen, onClose, employeeID}) {
                         value={employeeID}
                         className="form-input"
                     />
+                    <div className="container-inputs-emp">
+                        <div>
+                            <label for="name">Nombre</label>
+                            <input
+                                type="text"
+                                value={state.NombreEmp}
+                                className="form-input"
+                            />
+                        </div>
 
-                    <label for="name">Nombre</label>
+                        <div>
+                            <label for="lastName">Apellidos</label>
+                            <input
+                                type="text"
+                                value={state.ApellidosEmp}
+                                className="form-input"
+                            />
+                        </div>
+                    </div>
+                    <label for="Stand">Puesto</label>
                     <input
                         type="text"
-                        value={state.NombreEmp}
+                        value={state.IDPuesto}
                         className="form-input"
                     />
-
-                    <label for="lastName">Apellidos</label>
-                    <input
-                        type="text"
-                        value={state.ApellidosEmp}
-                        className="form-input"
-                    />
-
                     <label for="nss">NSS</label>
                     <input
                         type="text"
                         value={state.NSS}
                         className="form-input"
                     />
-
                     <label for="rfc">RFC</label>
                     <input
                         type="text"
                         value={state.RFC}
                         className="form-input"
                     />
-
                     <label for="phone">Teléfono</label>
                     <input
                         type="text"
                         value={state.Telefono}
                         className="form-input"
                     />
-
                     <label for="address">Dirección</label>
                     <input
                         type="text"
                         value={state.Direccion}
                         className="form-input"
                     />
-
                     <label for="email">Email</label>
                     <input
                         type="text"

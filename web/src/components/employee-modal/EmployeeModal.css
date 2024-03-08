@@ -21,7 +21,7 @@
     font-weight: 500;
     color: var(--dim-gray);
     width: 500px;
-    height: 800px;
+    height: auto;
     background-color: var(--white);
     padding: 25px;
     border: 1px solid var(--smoke-white);
@@ -59,10 +59,27 @@
 
 .form-input {
     height: 40px;
+    font-size: 1rem;
+    font-weight: 500;
     border: 1px solid rgb(137, 137, 137);
     border-radius: 5px;
-    margin-left: 5px;
     padding: 10px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 550;
+}
+
+.container-inputs-emp {
+    display: flex;
+    gap: 8px;
+}
+
+.container-inputs-emp div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .form-input::placeholder {

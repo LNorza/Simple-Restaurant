@@ -14,10 +14,10 @@ export function Header() {
                 </div>
             </Link>
             <div className="user">
-                <img src={user} alt="user-foto" />
+                <img src={user} alt="user-image" />
                 <div className="user-info">
                     <p>Samuel</p>
-                    <p className="puesto">Gerente general</p>
+                    <p className="stand">Gerente general</p>
                 </div>
             </div>
         </div>

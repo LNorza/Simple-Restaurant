@@ -7,14 +7,14 @@
 	display: grid;
 	width: 98%;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 15px;
+	gap: 16px;
 }
 
 .chart-container {
 	max-width: 98%;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: 10px;
+	gap: 16px;
 }
 
 .date-picker {

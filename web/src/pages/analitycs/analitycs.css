@@ -19,7 +19,7 @@
 
 .date-picker {
 	margin-right: 7px;
-	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .analitycs-table-text {
@@ -33,6 +33,6 @@
 	margin: 0px 0px 35px;
 	padding: 0px 0px 35px;
 	border-radius: 12px;
-	border: 1px solid rgba(0, 0, 0, 0.091);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }

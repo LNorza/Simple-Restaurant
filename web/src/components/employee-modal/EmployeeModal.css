@@ -66,6 +66,13 @@
     padding: 10px;
 }
 
+/* .emp {
+    width: 100%;
+    font-weight: 600;
+    pointer-events: none;
+    background-color: lightgray;
+} */
+
 label {
     font-size: 1rem;
     font-weight: 550;
@@ -74,6 +81,7 @@ label {
 .container-inputs-emp {
     display: flex;
     gap: 8px;
+    width: 100%;
 }
 
 .container-inputs-emp div {

@@ -31,12 +31,25 @@ export function EmployeeModal({isOpen, onClose, employeeID}) {
                 </div>
 
                 <div className="modal-form-content">
-                    <label for="id">Empleado</label>
-                    <input
-                        type="text"
-                        value={employeeID}
-                        className="form-input"
-                    />
+                    <div className="container-inputs-emp">
+                        <div className="employee-ID">
+                            <label for="id">Empleado</label>
+                            <input
+                                type="text"
+                                value={employeeID}
+                                className="form-input emp"
+                            />
+                        </div>
+                        <div>
+                            <label for="Stand">Puesto</label>
+                            <input
+                                type="text"
+                                value={state.IDPuesto}
+                                className="form-input"
+                            />
+                        </div>
+                    </div>
+
                     <div className="container-inputs-emp">
                         <div>
                             <label for="name">Nombre</label>
@@ -56,24 +69,25 @@ export function EmployeeModal({isOpen, onClose, employeeID}) {
                             />
                         </div>
                     </div>
-                    <label for="Stand">Puesto</label>
-                    <input
-                        type="text"
-                        value={state.IDPuesto}
-                        className="form-input"
-                    />
-                    <label for="nss">NSS</label>
-                    <input
-                        type="text"
-                        value={state.NSS}
-                        className="form-input"
-                    />
-                    <label for="rfc">RFC</label>
-                    <input
-                        type="text"
-                        value={state.RFC}
-                        className="form-input"
-                    />
+
+                    <div className="container-inputs-emp">
+                        <div>
+                            <label for="nss">NSS</label>
+                            <input
+                                type="text"
+                                value={state.NSS}
+                                className="form-input"
+                            />
+                        </div>
+                        <div>
+                            <label for="rfc">RFC</label>
+                            <input
+                                type="text"
+                                value={state.RFC}
+                                className="form-input"
+                            />
+                        </div>
+                    </div>
                     <label for="phone">Teléfono</label>
                     <input
                         type="text"

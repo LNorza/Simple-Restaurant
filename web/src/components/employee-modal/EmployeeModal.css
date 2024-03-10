@@ -66,12 +66,12 @@
     padding: 10px;
 }
 
-/* .emp {
+.emp {
     width: 100%;
     font-weight: 600;
     pointer-events: none;
     background-color: lightgray;
-} */
+}
 
 label {
     font-size: 1rem;

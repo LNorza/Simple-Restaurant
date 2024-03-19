@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import "./EmployeeModal.css";
+import "./UpdateModal.css";
 
-export function EmployeeModal({isOpen, onClose, employeeID}) {
+export function UpdateModal({isOpen, onClose, employeeID}) {
     if (!isOpen) return null;
     const [state, setState] = useState([]);
 
@@ -37,7 +37,8 @@ export function EmployeeModal({isOpen, onClose, employeeID}) {
                             <input
                                 type="text"
                                 value={employeeID}
-                                className="form-input emp"
+                                className="form-input"
+                                disabled
                             />
                         </div>
                         <div>

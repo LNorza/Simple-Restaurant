@@ -4,7 +4,7 @@ import Navbar from "../../components/navbar/navbar.jsx";
 import edit from "../../assets/Images/edit.svg";
 import trash from "../../assets/Images/trash.svg";
 import "./personal.css";
-import {EmployeeModal} from "../../components/employee-modal/EmployeeModal.jsx";
+import {UpdateModal} from "../../components/employee-modal/UpdateModal.jsx";
 
 export function PersonalPage() {
     const [state, setState] = useState([]);
@@ -91,7 +91,7 @@ export function PersonalPage() {
                     </div>
                 </div>
             </div>
-            <EmployeeModal
+            <UpdateModal
                 isOpen={showModal}
                 onClose={handleCloseModal}
                 employeeID={selectedEmployee}

@@ -21,9 +21,9 @@
     font-weight: 500;
     color: var(--dim-gray);
     width: 500px;
+    height: auto;
     background-color: var(--white);
     padding: 25px;
-    margin: 10px;
     border: 1px solid var(--smoke-white);
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
@@ -66,13 +66,6 @@
     padding: 10px;
 }
 
-.emp {
-    width: 100%;
-    font-weight: 600;
-    pointer-events: none;
-    background-color: lightgray;
-}
-
 label {
     font-size: 1rem;
     font-weight: 550;
@@ -111,5 +104,5 @@ label {
 .form-button:hover {
     transition: all 0.5s ease-in-out;
     border: 1px solid var(--SlateGray);
-    filter: brightness(110%);
+    filter: brightness(145%);
 }

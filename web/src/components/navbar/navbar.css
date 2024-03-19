@@ -1,90 +1,72 @@
 .navbar {
-	background-color: var(--white);
-	width: 80px;
-	height: auto;
-	padding: 15px;
-	border-top: 1px solid #e9e7e7;
-	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.2);
-	min-height: 100vh;
+    background-color: var(--white);
+    width: 80px;
+    height: auto;
+    padding: 15px;
+    border-top: 1px solid #e9e7e7;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.2);
+    min-height: 100vh;
 }
 
 .navbar ul {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 20px;
-	list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
 }
 
 .non-selected {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 50px;
-	height: 50px;
-	transition: background-color 0.3s ease;
-	border-radius: 100%;
-	background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+    border-radius: 100%;
+    background-color: #f5f5f5;
+    transition: all 0.3s linear;
 }
 
 .category-menu img {
-	filter: brightness(200%);
+    filter: brightness(200%);
 }
 
 .non-selected:hover {
-	background-color: var(--SlateGray);
-	filter: brightness(85%);
+    background-color: var(--SlateGray);
+    filter: brightness(85%);
+    transform: scale(1.2);
 }
 
 .non-selected:hover img {
-	filter: brightness(200%);
+    filter: brightness(200%);
 }
 
 .non-selected:active {
-	background-color: var(--DarkSlateBlue);
+    background-color: var(--DarkSlateBlue);
 }
 
 .category-menu {
-	background-color: var(--DarkSlateBlue);
+    background-color: var(--DarkSlateBlue);
 }
 
 @media (min-width: 427px) and (max-width: 769px) {
-	.navbar {
-		width: 10%;
-		min-width: 80px;
-	}
+    .navbar {
+        width: 10%;
+        min-width: 80px;
+    }
 
-	.navbar ul li {
-		width: 60px;
-		height: 60px;
-	}
+    .navbar ul li img {
+        width: 25px;
+        height: 25px;
+    }
 
-	.navbar ul li img {
-		width: 30px;
-		height: 30px;
-	}
+    .navbar ul .category-menu img {
+        width: 25px;
+        height: 25px;
+    }
 
-	.navbar ul .category-menu img {
-		width: 40px;
-		height: 40px;
-	}
-
-	.navbar ul li:hover img {
-		width: 30px;
-		height: 30px;
-	}
-
-	.navbar ul .category-menu {
-		width: 60px;
-		height: 60px;
-	}
-
-	.navbar ul .category-menu img {
-		width: 30px;
-		height: 30px;
-	}
-
-	.navbar ul .category-menu img {
-		filter: brightness(200%);
-	}
+    .navbar ul .category-menu img {
+        filter: brightness(200%);
+    }
 }

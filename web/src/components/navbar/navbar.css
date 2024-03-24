@@ -16,6 +16,11 @@
 	list-style: none;
 }
 
+.navbar ul li {
+	width: 24px;
+	height: 24px;
+}
+
 .non-selected {
 	display: flex;
 	align-items: center;
@@ -28,8 +33,15 @@
 	transition: all 0.3s linear;
 }
 
+.non-selected img {
+	width: 24px;
+	height: 24px;
+}
+
 .category-menu img {
 	filter: brightness(200%);
+	width: 24px;
+	height: 24px;
 }
 
 .non-selected:hover {

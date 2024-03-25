@@ -4,23 +4,19 @@ import {HeaderDropdown} from "../header-dropdown/header-dropdown";
 import "./header.css";
 
 export function Header() {
-	return (
-		<div className="header">
-			<Link to="/home">
-				<div className="logo">
-					<img src={logo} alt="simpleRestaurant" />
-					<h1>SimpleRestaurant</h1>
-				</div>
-			</Link>
-			<div className="user">
-				<HeaderDropdown />
-				<div className="user-info">
-					<p>Samuel</p>
-					<p className="stand">Gerente general</p>
-				</div>
-			</div>
-		</div>
-	);
+    return (
+        <div className="header">
+            <Link to="/home">
+                <div className="logo">
+                    <img src={logo} alt="simpleRestaurant" />
+                    <h1>SimpleRestaurant</h1>
+                </div>
+            </Link>
+            <div className="user">
+                <HeaderDropdown />
+            </div>
+        </div>
+    );
 }
 
 export default Header;

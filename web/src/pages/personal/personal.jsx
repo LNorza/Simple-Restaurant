@@ -43,6 +43,7 @@ export function PersonalPage() {
                                 <div className="texto-encabezado">Telefono</div>
                             </div>
 
+                            {/* Component Loading when "isLoading" is false: */}
                             {isLoading && <Loading />}
 
                             <div className="contenedor-datos">

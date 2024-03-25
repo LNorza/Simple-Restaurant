@@ -1,40 +1,31 @@
 a {
-	color: var(--LogoColor);
-	text-decoration: none;
+    color: var(--LogoColor);
+    text-decoration: none;
 }
 
 .header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: var(--white);
-	padding: 7px 20px 7px 20px;
-	color: var(--LogoColor);
-	width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    padding: 7px 20px 7px 20px;
+    color: var(--LogoColor);
+    width: 100%;
 }
 
 .logo {
-	display: flex;
-	align-items: center;
-	gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo img {
-	width: 50px;
-	height: 50px;
+    width: 50px;
+    height: 50px;
 }
 
 .header .user {
-	display: flex;
-	align-items: center;
-	margin-right: 30px;
-	font-family: "Inter", sans-serif;
-	font-size: 1rem;
-	font-weight: 600;
-}
-
-.header .user-info .stand {
-	padding-top: 3px;
-	font-size: 0.85rem;
-	font-weight: 400;
+    margin-right: 30px;
 }

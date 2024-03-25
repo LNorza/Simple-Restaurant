@@ -12,6 +12,7 @@ import {InventoryPage} from "./pages/inventory/inventory.jsx";
 import {CommandsPage} from "./pages/command-page/commands.jsx";
 import {AnalitycsPage} from "./pages/analitycs/analitycs.jsx";
 import {PersonalPage} from "./pages/personal/personal.jsx";
+import {TablesPage} from "./pages/tables/tables.jsx";
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/commands" element={<CommandsPage />} />
 				<Route path="/personal" element={<PersonalPage />} />
 				<Route path="/analitycs" element={<AnalitycsPage />} />
+				<Route path="/tables" element={<TablesPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

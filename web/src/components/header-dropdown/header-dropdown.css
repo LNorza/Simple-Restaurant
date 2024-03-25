@@ -1,0 +1,96 @@
+.dropdown {
+	position: relative;
+	display: grid;
+	place-items: center;
+	height: 72px;
+}
+
+.dropdown > .dropbtn {
+	margin-right: 10px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.dropdown > .dropbtn img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.dropdown > .dropbtn::before {
+	border: 0px solid transparent;
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	scale: 0.25;
+	opacity: 0;
+	/* background: rgb(255 255 255 / 8%); */
+	transition: 0.2s;
+}
+
+.dropdown-menu {
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 1;
+	top: 64px;
+	right: -20px;
+	display: flex;
+	flex-direction: column;
+	translate: 0 16px;
+	width: 150px;
+	max-height: 286px;
+	padding: 10px;
+	background: #fffffff0;
+	border: 1px solid #d3d3d3;
+	border-radius: 8px;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s;
+	appearance: none;
+}
+
+.dropdown:hover > button::before {
+	scale: 1;
+	opacity: 1;
+}
+
+.dropdown-menu-button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-family: "Inter", sans-serif;
+	font-size: 1rem;
+	width: 100%;
+	text-align: left;
+	padding: 5px 5px;
+	border-radius: 10px;
+	transition: background-color 0.5s ease;
+}
+
+.dropdown-menu-button:hover {
+	background-color: #f3f3f3;
+}
+
+.menu::-webkit-scrollbar {
+	width: 15px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+	background: rgb(255 255 255 / 16%);
+	border-radius: 10px;
+	border: 4px solid transparent;
+	background-clip: padding-box;
+}
+
+.dropdown:hover .dropdown-menu {
+	opacity: 1;
+	visibility: visible;
+	translate: 0;
+}

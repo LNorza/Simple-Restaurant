@@ -1,10 +1,10 @@
 import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
-import "./commands.css";
+import "./tables.css";
 
-export function CommandsPage() {
+export function TablesPage() {
 	return (
-		<div className="commands-page">
+		<div className="tables-page">
 			<Header />
 			<div className="menu-container">
 				<Navbar />

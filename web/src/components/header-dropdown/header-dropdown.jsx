@@ -22,7 +22,9 @@ export function HeaderDropdown() {
 
     return (
         <>
-            <div onClick={closeDropdown} className="exit-Dropdown" />
+            {isOpen && (
+                <div onClick={closeDropdown} className="exit-Dropdown" />
+            )}
 
             <div onClick={openDropdown} className="dropdown">
                 <button className="dropbtn">

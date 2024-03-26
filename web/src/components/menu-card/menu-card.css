@@ -12,6 +12,7 @@ a {
 	height: 240px;
 	width: 240px;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+	margin-top: -40px;
 }
 
 .menu-card:hover {

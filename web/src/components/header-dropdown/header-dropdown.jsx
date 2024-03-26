@@ -7,32 +7,45 @@ import {useState} from "react";
 export function HeaderDropdown() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
+    const openDropdown = () => {
+        if (isOpen) {
+            setIsOpen(false);
+            return;
+        }
+
+        setIsOpen(true);
+    };
+
+    const closeDropdown = () => {
+        setIsOpen(false);
     };
 
     return (
-        <div className="dropdown">
-            <button className="dropbtn" onClick={toggleDropdown}>
-                <img src={user} alt="user-image" />
-                <div className="user-info">
-                    <p>Samuel</p>
-                    <p className="stand">Gerente general</p>
-                </div>
-            </button>
+        <>
+            <div onClick={closeDropdown} className="exit-Dropdown" />
 
-            <div className={`dropdown-menu ${isOpen ? "open" : ""}`}>
-                <button className="dropdown-menu-button">
-                    <User />
-                    <span>Perfil</span>
+            <div onClick={openDropdown} className="dropdown">
+                <button className="dropbtn">
+                    <img src={user} alt="user-image" />
+                    <div className="user-info">
+                        <p>Samuel</p>
+                        <p className="stand">Gerente general</p>
+                    </div>
                 </button>
-                <Link to="/">
+
+                <div className={`dropdown-menu ${isOpen ? "open" : ""}`}>
                     <button className="dropdown-menu-button">
-                        <LogOut />
-                        <span>Salir</span>
+                        <User />
+                        <span>Perfil</span>
                     </button>
-                </Link>
+                    <Link to="/">
+                        <button className="dropdown-menu-button">
+                            <LogOut />
+                            <span>Salir</span>
+                        </button>
+                    </Link>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

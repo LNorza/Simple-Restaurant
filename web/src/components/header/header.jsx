@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import logo from "../../assets/Images/Logo-icon.svg";
 import {HeaderDropdown} from "../header-dropdown/header-dropdown";
 import "./header.css";
+import {useState} from "react";
 
 export function Header() {
     return (

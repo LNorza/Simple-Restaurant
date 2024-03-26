@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "ant": "^0.2.0"
+    "ant": "^0.2.0",
+    "lucide-react": "^0.363.0"
   }
 }

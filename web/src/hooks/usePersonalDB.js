@@ -5,9 +5,6 @@ export const usePersonalDB = () => {
     const [isLoading, setLoading] = useState(true); // Estado para controlar la carga
 
     async function fetchData() {
-        // Simular un retraso de 1.5 segundos
-        // await new Promise((resolve) => setTimeout(resolve, 1500));
-
         const result = await fetch(
             "https://simplerestaurant-api-production.up.railway.app/api/employees"
         ).then((response) => response.json());
@@ -21,3 +18,6 @@ export const usePersonalDB = () => {
 
     return {personal, isLoading};
 };
+
+// Simular un retraso de 1.5 segundos
+// await new Promise((resolve) => setTimeout(resolve, 1500));

@@ -4,7 +4,7 @@
     padding: 4px;
 }
 
-.dropdown > .dropbtn {
+.dropdown .dropbtn {
     display: flex;
     align-items: center;
     color: var(--LogoColor);
@@ -20,53 +20,43 @@
     font-weight: 600;
 }
 
-.dropdown > .dropbtn .user-info .stand {
+.dropdown .dropbtn .user-info .stand {
     padding-top: 3px;
     font-size: 0.85rem;
     font-weight: 400;
 }
 
-.dropdown > .dropbtn img {
+.dropdown .dropbtn img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
 .dropdown-menu {
-    display: flex;
-    justify-content: center;
-    overflow: auto;
     position: absolute;
+    top: 70px; /* Ajustado para que el menú no se superponga al botón */
+    left: 0;
     z-index: 1;
-    top: 64px;
-    right: -20px;
     width: 100%;
-    max-height: 286px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    flex-direction: column;
-}
-
-.dropdown-menu div {
-    width: 150px;
     background: #fffffff0;
-    border: 1px solid #d3d3d3;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    padding: 10px;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
 }
 
-.dropdown:hover > button::before {
-    transform: scale(1);
-    opacity: 1;
+.dropdown-menu.open {
+    max-height: 200px;
+    visibility: visible;
 }
 
 .dropdown-menu-button {
     display: flex;
     align-items: center;
     gap: 4px;
-    width: 100%;
+    width: 90%;
     text-align: left;
     background: transparent;
     border: none;
@@ -75,6 +65,7 @@
     font-size: 1rem;
     border-radius: 10px;
     padding: 5px 5px;
+    margin: 10px;
     transition: background-color 0.5s ease;
 }
 

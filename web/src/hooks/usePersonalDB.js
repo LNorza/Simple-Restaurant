@@ -1,22 +1,22 @@
 import {useEffect, useState} from "react";
 
 export const usePersonalDB = () => {
-    const [personal, setPersonal] = useState([]);
-    const [isLoading, setLoading] = useState(true); // Estado para controlar la carga
+	const [personal, setPersonal] = useState([]);
+	const [isLoading, setLoading] = useState(true); // Estado para controlar la carga
 
-    async function fetchData() {
-        const result = await fetch(
-            "https://simplerestaurant-api-production.up.railway.app/api/employees"
-        ).then((response) => response.json());
-        setPersonal(result);
-        setLoading(false); // Una vez que se cargan los datos, establece loading en false
-    }
+	async function fetchData() {
+		const result = await fetch(
+			"https://simplerestaurant-api-production.up.railway.app/api/employees"
+		).then((response) => response.json());
+		setPersonal(result);
+		setLoading(false); // Una vez que se cargan los datos, establece loading en false
+	}
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+	useEffect(() => {
+		fetchData();
+	}, []);
 
-    return {personal, isLoading};
+	return {personal, isLoading};
 };
 
 // Simular un retraso de 1.5 segundos

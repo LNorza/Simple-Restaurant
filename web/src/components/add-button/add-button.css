@@ -1,0 +1,21 @@
+.add-button {
+	font-size: 0.9rem;
+	font-weight: bold;
+	width: 160px;
+	background-color: var(--DarkSlateGray);
+	color: var(--white);
+	border: 1px solid var(--DarkSlateGray);
+	border-radius: 5px;
+	padding: 9px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	margin-right: 30px;
+	height: 50px;
+}
+
+.add-button:hover {
+	filter: brightness(130%);
+	border: 1px solid var(--SlateGray);
+}

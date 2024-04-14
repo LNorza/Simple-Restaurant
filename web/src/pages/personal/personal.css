@@ -15,6 +15,11 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 16px 20px 24px 10px;
+	height: 50px;
+}
+
+.header-container h2 {
+	margin: auto 0px;
 }
 
 .contenedor-tabla {
@@ -196,4 +201,12 @@
 	70% {
 		transform: none;
 	}
+}
+
+.not-find {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin-top: 25px;
 }

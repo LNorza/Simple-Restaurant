@@ -1,99 +1,134 @@
-import {useEffect, useState} from "react";
+import {useState, useEffect} from "react";
 import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
-import edit from "../../assets/Images/edit.svg";
-import trash from "../../assets/Images/trash.svg";
+import {Trash2, SquarePen} from "lucide-react";
 import "./personal.css";
 import {UpdateModal} from "../../components/employee-modal/UpdateModal.jsx";
 import {usePersonalDB} from "../../hooks/usePersonalDB.js";
 import {Loading} from "../../components/Loading/Loading.jsx";
+import {AddButton} from "../../components/add-button/add-button.jsx";
+import {SearchForm} from "../../components/search-form/search-form.jsx";
 
 export function PersonalPage() {
-    const {personal, isLoading} = usePersonalDB();
-    const [showModal, setShowModal] = useState(false);
-    const [selectedEmployee, setSelectedEmployee] = useState(null);
+	const [personal, setPersonal] = useState([]);
+	const [originalPersonal, setOriginalPersonal] = useState([]);
+	const [isLoading, setLoading] = useState(true); // Estado para controlar la carga
 
-    function handleOpenModal(employeeID) {
-        setSelectedEmployee(employeeID);
-        setShowModal(true);
-    }
+	async function fetchData() {
+		const result = await fetch(
+			"https://simplerestaurant-api-production.up.railway.app/api/employees"
+		).then((response) => response.json());
+		setPersonal(result);
+		setOriginalPersonal(result);
+		setLoading(false); // Una vez que se cargan los datos, establece loading en false
+	}
 
-    function handleCloseModal() {
-        setShowModal(false);
-        setSelectedEmployee(null);
-    }
+	useEffect(() => {
+		fetchData();
+	}, []);
 
-    return (
-        <div className="personal-page">
-            <Header />
-            <div className="menu-container">
-                <Navbar />
+	const allEmployees = originalPersonal;
+	const [showModal, setShowModal] = useState(false);
+	const [selectedEmployee, setSelectedEmployee] = useState(null);
 
-                <div className="principal-container">
-                    <div className="header-container">
-                        <h2>Gestión de personal</h2>
-                    </div>
+	const handleSearch = (searchTerm) => {
+		console.log(allEmployees);
+		const searchedEmployees = allEmployees.filter(
+			(employee) =>
+				employee.NombreEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				employee.ApellidosEmp.toLowerCase().includes(
+					searchTerm.toLowerCase()
+				) ||
+				employee.NSS.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				employee.RFC.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				employee.Telefono.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+		setPersonal(searchedEmployees);
+	};
 
-                    <div className="contenedor-tabla">
-                        <div className="tabla">
-                            <div className="tabla-encabezado">
-                                <div className="texto-encabezado">Nombre</div>
-                                <div className="texto-encabezado">NSS</div>
-                                <div className="texto-encabezado">RFC</div>
-                                <div className="texto-encabezado">Telefono</div>
-                            </div>
+	function handleOpenModal(employeeID) {
+		setSelectedEmployee(employeeID);
+		setShowModal(true);
+	}
 
-                            {/* Component Loading when "isLoading" is false: */}
-                            {isLoading && <Loading />}
+	function handleCloseModal() {
+		setShowModal(false);
+		setSelectedEmployee(null);
+	}
 
-                            <div className="contenedor-datos">
-                                {personal.map((employee) => (
-                                    <div
-                                        className="datos"
-                                        key={employee.IDEmpleado}
-                                    >
-                                        <span>
-                                            {employee.NombreEmp}{" "}
-                                            {employee.ApellidosEmp}
-                                        </span>
-                                        <span>{employee.NSS}</span>
-                                        <span>{employee.RFC}</span>
-                                        <span>{employee.Telefono}</span>
-                                        <div className="boton-container">
-                                            <button
-                                                className="button"
-                                                onClick={() =>
-                                                    handleOpenModal(
-                                                        employee.IDEmpleado
-                                                    )
-                                                }
-                                            >
-                                                <img src={edit} alt="" />
-                                            </button>
-                                            <button
-                                                className="button"
-                                                onClick={() =>
-                                                    handleOpenModal(
-                                                        employee.IDEmpleado
-                                                    )
-                                                }
-                                            >
-                                                <img src={trash} alt="" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	return (
+		<div className="personal-page">
+			<Header />
+			<div className="menu-container">
+				<Navbar />
 
-            <UpdateModal
-                isOpen={showModal}
-                onClose={handleCloseModal}
-                employeeID={selectedEmployee}
-            />
-        </div>
-    );
+				<div className="principal-container">
+					<div className="header-container">
+						<h2>Gestión de personal</h2>
+						<div className="search">
+							<SearchForm
+								placeholder="Buscar Empleado"
+								onSearch={handleSearch}
+							/>
+							<AddButton message="Agregar Empleado" />
+						</div>
+					</div>
+
+					<div className="contenedor-tabla">
+						<div className="tabla">
+							<div className="tabla-encabezado">
+								<div className="texto-encabezado">Nombre</div>
+								<div className="texto-encabezado">NSS</div>
+								<div className="texto-encabezado">RFC</div>
+								<div className="texto-encabezado">Telefono</div>
+							</div>
+
+							{/* Component Loading when "isLoading" is true: */}
+							{isLoading && <Loading />}
+
+							<div className="contenedor-datos">
+								{!isLoading && personal.length === 0 && (
+									<div className="not-find">No se encontraron empleados</div>
+								)}
+								{!isLoading && personal.length > 0 && (
+									<>
+										{personal.map((employee) => (
+											<div className="datos" key={employee.IDEmpleado}>
+												<span>
+													{employee.NombreEmp} {employee.ApellidosEmp}
+												</span>
+												<span>{employee.NSS}</span>
+												<span>{employee.RFC}</span>
+												<span>{employee.Telefono}</span>
+												<div className="boton-container">
+													<button
+														className="button"
+														onClick={() => handleOpenModal(employee.IDEmpleado)}
+													>
+														<SquarePen size={28} color="#294B69" />
+													</button>
+													<button
+														className="button"
+														onClick={() => handleOpenModal(employee.IDEmpleado)}
+													>
+														<Trash2 color="#294B69" size={28} />
+													</button>
+												</div>
+											</div>
+										))}
+									</>
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<UpdateModal
+				isOpen={showModal}
+				onClose={handleCloseModal}
+				employeeID={selectedEmployee}
+			/>
+		</div>
+	);
 }

@@ -92,6 +92,7 @@ export function InventoryPage() {
                         headerColumnsTable={headerColumns}
                         infoForTable={tempDataInventory}
                         nColumns={6}
+                        namePage="Producto"
                     />
                 </div>
             </div>

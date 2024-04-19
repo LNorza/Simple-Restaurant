@@ -90,6 +90,7 @@ export function CommandsPage() {
                         headerColumnsTable={headerColumns}
                         infoForTable={tempDataCommands}
                         nColumns={4}
+                        namePage="Comandas"
                     />
                 </div>
             </div>

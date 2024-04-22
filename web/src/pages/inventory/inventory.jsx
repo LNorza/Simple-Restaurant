@@ -7,19 +7,18 @@ import { AddButton } from "../../components/add-button/add-button.jsx";
 import TableCustom from "../../components/tableCustom/table-custom.jsx";
 
 export function InventoryPage() {
-    const [isLoading, setIsLoading] = useState(false);
 
     const handleSearch = (searchTerm) => {
-        console.log(allEmployees);
-        const searchedEmployees = allEmployees.filter(
-            (employee) =>
-                employee.NombreEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                employee.ApellidosEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                employee.NSS.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                employee.RFC.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                employee.Telefono.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setPersonal(searchedEmployees);
+        console.log("Hola");
+        // const searchedEmployees = allEmployees.filter(
+        //     (employee) =>
+        //         employee.NombreEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        //         employee.ApellidosEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        //         employee.NSS.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        //         employee.RFC.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        //         employee.Telefono.toLowerCase().includes(searchTerm.toLowerCase())
+        // );
+        // setPersonal(searchedEmployees);
     };
 
     const headerColumns = [

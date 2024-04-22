@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./modal-custom.css";
 
-const ModalCustom = ({ isOpen, onClose, page, typeModal, idSelected, headerData, totalData }) => {
-    if (!isOpen) return null;
+const ModalCustom = (props) => {
+
+    const { isOpen, onClose, page, typeModal, idSelected, headerData, totalData } = props;
+    if (!isOpen) return;
 
     const dataItem = totalData.find((data) => data.id === idSelected);
     const [formData, setFormData] = useState({});
-    console.log(formData);
+    const [isDeleteModal, setIsDeleteModal] = useState(false);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -21,6 +23,18 @@ const ModalCustom = ({ isOpen, onClose, page, typeModal, idSelected, headerData,
         onClose(); // Cerrar modal después de realizar la acción
     };
 
+    const onCloseModal = () => {
+        onClose();
+    };
+
+    useEffect(() => {
+        if (typeModal === "delete") {
+            setIsDeleteModal(true);
+        } else {
+            setIsDeleteModal(false);
+        }
+    }, [typeModal, dataItem]);
+
     const addClass = (dataKey) => {
         if (dataKey == "mesa") {
             return "modal-custom-form-content-50 float-left";
@@ -32,40 +46,57 @@ const ModalCustom = ({ isOpen, onClose, page, typeModal, idSelected, headerData,
 
     return (
         <div className="modal-custom">
-            <div onClick={onClose} className="overlay"></div>
+            <div onClick={onCloseModal} className="overlay"></div>
             <div className="modal-custom-container">
                 <div className="modal-custom-header">
                     {typeModal === "update" ? `Editar ${page}` : `Eliminar ${page}`}
-                    <button onClick={onClose}>✖</button>
+                    <button onClick={onCloseModal}>✖</button>
+
                 </div>
 
-                {headerData.map((column) => (
-                    <div
-                        className={`modal-custom-form-content ${
-                            column.dataKey == "mesa" || column.dataKey == "hora" ? addClass(column.dataKey) : ""
-                        }`}
-                    >
-                        <div key={`${idSelected}-${column.id}`}>
-                            <div className={`modal-custom-input`}>
-                                <label htmlFor={column.dataKey}>{column.title}</label>
-                                <input
-                                    type="text"
-                                    value={dataItem[column.dataKey]}
-                                    className="form-input"
-                                    onChange={handleInputChange}
-                                    disabled={typeModal === "delete"}
-                                />
-                            </div>
+                {isDeleteModal && (
+                    <div className="modal-custom-form-content-delete">
+                        <p>¿Estás seguro que deseas eliminar este registro?</p>
+
+                        <div className="modal-custom-delete-btn">
+                            <button onClick={handleAction} className="btn btn-delete">
+                                Eliminar
+                            </button>
+
+                            <button onClick={onCloseModal} className="btn btn-cancel">
+                                Cancelar
+                            </button>
                         </div>
                     </div>
-                ))}
-                <div className="form-custom-button-container">
-                    <button type="button" className="form-custom-button" onClick={handleAction}>
-                        {typeModal === "update" ? "Actualizar" : "Eliminar"}
-                    </button>
-                </div>
+                )
+                }
+
+                {!isDeleteModal &&
+                    <>
+                        {headerData.map((column) => (
+                            <div key={`${column.id}`} className="modal-custom-form-content">
+
+                                <div className="modal-custom-input">
+                                    <label htmlFor={column.dataKey}>{column.title}</label>
+                                    <input
+                                        type="text"
+                                        value={dataItem[column.dataKey]}
+                                        className="form-input"
+                                        onChange={handleInputChange}
+                                        disabled={typeModal === "delete"}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                        <div className="form-custom-button-container">
+                            <button type="button" className="form-custom-button" onClick={handleAction}>
+                                {typeModal === "update" ? "Actualizar" : "Eliminar"}
+                            </button>
+                        </div>
+                    </>
+                }
             </div>
-        </div>
+        </div >
     );
 };
 

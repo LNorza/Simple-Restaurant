@@ -13,6 +13,7 @@ import {CommandsPage} from "./pages/command-page/commands.jsx";
 import {AnalitycsPage} from "./pages/analitycs/analitycs.jsx";
 import {PersonalPage} from "./pages/personal/personal.jsx";
 import {TablesPage} from "./pages/tables/tables.jsx";
+import {DishesPage} from "./pages/dishes/dishes.jsx";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 				<Route path="/personal" element={<PersonalPage />} />
 				<Route path="/analitycs" element={<AnalitycsPage />} />
 				<Route path="/tables" element={<TablesPage />} />
+				<Route path="/dishes" element={<DishesPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

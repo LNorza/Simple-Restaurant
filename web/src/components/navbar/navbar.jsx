@@ -5,6 +5,7 @@ import inventory from "../../assets/Images/inventario.svg";
 import personal from "../../assets/Images/muliple-users.svg";
 import analitycs from "../../assets/Images/analitycs.svg";
 import table from "../../assets/Images/table.svg";
+import cookingPot from "../../assets/Images/cooking-pot.svg";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -35,9 +36,7 @@ const Navbar = () => {
 				<Link
 					to="/inventory"
 					className={`${
-						location.pathname === "/inventory"
-							? "category-menu"
-							: ""
+						location.pathname === "/inventory" ? "category-menu" : ""
 					} non-selected`}
 				>
 					<li>
@@ -57,9 +56,7 @@ const Navbar = () => {
 				<Link
 					to="/analitycs"
 					className={`${
-						location.pathname === "/analitycs"
-							? "category-menu"
-							: ""
+						location.pathname === "/analitycs" ? "category-menu" : ""
 					} non-selected`}
 				>
 					<li>
@@ -74,6 +71,16 @@ const Navbar = () => {
 				>
 					<li>
 						<img src={table} alt="" />
+					</li>
+				</Link>
+				<Link
+					to="/dishes"
+					className={`${
+						location.pathname === "/dishes" ? "category-menu" : ""
+					} non-selected`}
+				>
+					<li>
+						<img src={cookingPot} alt="" />
 					</li>
 				</Link>
 			</ul>

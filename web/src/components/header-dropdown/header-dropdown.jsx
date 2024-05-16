@@ -22,9 +22,7 @@ export function HeaderDropdown() {
 
 	return (
 		<>
-			{isOpen && (
-				<div onClick={closeDropdown} className="exit-Dropdown" />
-			)}
+			{isOpen && <div onClick={closeDropdown} className="exit-Dropdown" />}
 
 			<div onClick={openDropdown} className="dropdown">
 				<button className="dropbtn">
@@ -44,7 +42,7 @@ export function HeaderDropdown() {
 					</button>
 
 					<button className="dropdown-menu-button">
-						<Link to="/" className="dropdown-link">
+						<Link to="/" className="dropdown-link logout">
 							<LogOut />
 							<span>Salir</span>
 						</Link>

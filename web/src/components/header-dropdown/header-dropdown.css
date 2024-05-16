@@ -1,110 +1,116 @@
 .exit-Dropdown {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .dropdown {
-    position: relative;
-    height: 60px;
-    padding: 4px;
+	position: relative;
+	height: 60px;
+	padding: 4px;
 }
 
 .dropdown .dropbtn {
-    display: flex;
-    align-items: center;
-    color: var(--LogoColor);
-    gap: 10px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	color: var(--LogoColor);
+	gap: 10px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 }
 
 .user-info {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
+	font-family: "Inter", sans-serif;
+	font-size: 1rem;
+	font-weight: 600;
 }
 
 .dropdown .dropbtn .user-info .stand {
-    padding-top: 3px;
-    font-size: 0.85rem;
-    font-weight: 400;
+	padding-top: 3px;
+	font-size: 0.85rem;
+	font-weight: 400;
 }
 
 .dropdown .dropbtn img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: 70px; /* Ajustado para que el menú no se superponga al botón */
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    background: #fffffff0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    visibility: hidden;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
+	position: absolute;
+	top: 70px; /* Ajustado para que el menú no se superponga al botón */
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	background: #fffffff0;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	visibility: hidden;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease;
 }
 
 .dropdown-menu.open {
-    max-height: 200px;
-    visibility: visible;
+	max-height: 200px;
+	visibility: visible;
 }
 
 .dropdown-menu-button {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    width: 90%;
-    text-align: left;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    border-radius: 10px;
-    margin: 10px;
-    transition: background-color 0.5s ease;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	width: 90%;
+	text-align: left;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-family: "Inter", sans-serif;
+	font-size: 1rem;
+	border-radius: 10px;
+	margin: 10px;
+	transition: background-color 0.5s ease;
 }
 
 .dropdown-link {
-    padding: 5px 5px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    width: 100%;
-    height: 100%;
+	padding: 5px 5px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	width: 100%;
+	height: 100%;
 }
 
 .dropdown-menu-button:hover {
-    background-color: #e9e9e9;
+	background-color: #e9e9e9;
 }
 
 .menu::-webkit-scrollbar {
-    width: 15px;
+	width: 15px;
 }
 
 .menu::-webkit-scrollbar-thumb {
-    background: rgb(255 255 255 / 16%);
-    border-radius: 10px;
-    border: 4px solid transparent;
-    background-clip: padding-box;
+	background: rgb(255 255 255 / 16%);
+	border-radius: 10px;
+	border: 4px solid transparent;
+	background-clip: padding-box;
 }
 
 .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    translate: 0;
+	opacity: 1;
+	visibility: visible;
+	translate: 0;
+}
+
+.logout:hover {
+	color: red;
+	transition: all 0.2s;
+	filter: brightness(200%);
 }

@@ -1,12 +1,12 @@
 import {useState} from "react";
 import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
-import "./inventory.css";
+import "../inventory/inventory.css";
 import {SearchForm} from "../../components/search-form/search-form.jsx";
 import {AddButton} from "../../components/add-button/add-button.jsx";
 import TableCustom from "../../components/tableCustom/table-custom.jsx";
 
-export function InventoryPage() {
+export function DishesPage() {
 	const handleSearch = (searchTerm) => {
 		console.log("Hola");
 		// const searchedEmployees = allEmployees.filter(
@@ -22,103 +22,102 @@ export function InventoryPage() {
 
 	const headerColumns = [
 		{id: 1, title: "Clave", dataKey: "clave"},
-		{id: 2, title: "Producto", dataKey: "product"},
-		{id: 3, title: "Proveedor", dataKey: "supplier"},
-		{id: 4, title: "Costo unitario", dataKey: "costUnitary"},
-		{id: 5, title: "Unidad de medida", dataKey: "unitMedition"},
-		{id: 6, title: "Cantidad en físico", dataKey: "physicalUnit"},
+		{id: 2, title: "Platillo", dataKey: "dish"},
+		{id: 3, title: "Grupo", dataKey: "group"},
+		{id: 4, title: "Precio", dataKey: "price"},
 	];
 
 	const tempDataInventory = [
 		{
 			id: 1,
 			clave: 1,
-			product: "Bolsa de azúcar",
-			supplier: "Zulka",
-			costUnitary: 20,
-			unitMedition: "PZA",
-			physicalUnit: 10,
+			dish: "Pizza clásica",
+			group: "Platillos fuertes",
+			price: 120,
 		},
 		{
 			id: 2,
 			clave: 2,
-			product: "Refresco de cola",
-			supplier: "Coca Cola",
-			costUnitary: 40,
-			unitMedition: "PZA",
-			physicalUnit: 50,
+			dish: "Hamburguesa clásica",
+			group: "Platillos fuertes",
+			price: 150,
 		},
 		{
 			id: 3,
 			clave: 3,
-			product: "Tomate",
-			supplier: "Fruteria Garmendia",
-			costUnitary: 54,
-			unitMedition: "KG",
-			physicalUnit: 4.3,
+			dish: "Papas a la francesa",
+			group: "Entradas",
+			price: 50,
 		},
 		{
 			id: 4,
 			clave: 4,
-			product: "Harina",
-			supplier: "Maseca",
-			costUnitary: 15,
-			unitMedition: "KG",
-			physicalUnit: 6,
+			dish: "Tacos de pastor",
+			group: "Platillos fuertes",
+			price: 70,
 		},
 		{
 			id: 5,
 			clave: 5,
-			product: "Aceite",
-			supplier: "Capullo",
-			costUnitary: 40,
-			unitMedition: "L",
-			physicalUnit: 20,
+			dish: "Agua de horchata",
+			group: "Bebidas",
+			price: 20,
 		},
 		{
 			id: 6,
 			clave: 6,
-			product: "Carne de res",
-			supplier: "Carniceria El Ranchito",
-			costUnitary: 120,
-			unitMedition: "KG",
-			physicalUnit: 15,
+			dish: "Tacos de bistec",
+			group: "Platillos fuertes",
+			price: 70,
 		},
 		{
 			id: 7,
 			clave: 7,
-			product: "Papas",
-			supplier: "Fruteria Garmendia",
-			costUnitary: 30,
-			unitMedition: "KG",
-			physicalUnit: 10,
+			dish: "Agua de jamaica",
+			group: "Bebidas",
+			price: 20,
 		},
 		{
 			id: 8,
 			clave: 8,
-			product: "Pan",
-			supplier: "Bimbo",
-			costUnitary: 20,
-			unitMedition: "PZA",
-			physicalUnit: 30,
+			dish: "Tacos de pollo",
+			group: "Platillos fuertes",
+			price: 70,
 		},
 		{
 			id: 9,
 			clave: 9,
-			product: "Cerveza",
-			supplier: "Corona",
-			costUnitary: 25,
-			unitMedition: "L",
-			physicalUnit: 40,
+			dish: "Coca cola",
+			group: "Bebidas",
+			price: 20,
 		},
 		{
 			id: 10,
 			clave: 10,
-			product: "Leche",
-			supplier: "Lala",
-			costUnitary: 15,
-			unitMedition: "L",
-			physicalUnit: 20,
+			dish: "Tacos de carnitas",
+			group: "Platillos fuertes",
+			price: 70,
+		},
+		{
+			id: 11,
+			clave: 11,
+			dish: "Pepsi",
+			group: "Bebidas",
+			price: 20,
+		},
+		{
+			id: 12,
+			clave: 12,
+			dish: "Tacos de chorizo",
+			group: "Platillos fuertes",
+			price: 70,
+		},
+		{
+			id: 13,
+			clave: 13,
+			dish: "Agua de limón",
+			group: "Bebidas",
+			price: 20,
 		},
 	];
 
@@ -130,14 +129,14 @@ export function InventoryPage() {
 
 				<div className="principal-container">
 					<div className="header-container">
-						<h2>Gestión de Invetario</h2>
+						<h2>Gestión de Platillos</h2>
 
 						<div className="search">
 							<SearchForm
-								placeholder="Buscar Producto"
+								placeholder="Buscar PLatillo"
 								onSearch={handleSearch}
 							/>
-							<AddButton message="Agregar Producto" />
+							<AddButton message="Agregar Platillo" />
 						</div>
 					</div>
 

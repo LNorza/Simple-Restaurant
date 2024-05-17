@@ -82,7 +82,7 @@ export function CommandsPage() {
 
 						<div className="search">
 							<SearchForm
-								placeholder="Buscar una comanda por measa"
+								placeholder="Buscar una comanda por mesa..."
 								onSearch={handleSearch}
 							/>
 							<AddButton message="Crear Comanda" />

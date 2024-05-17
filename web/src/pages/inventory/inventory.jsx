@@ -134,7 +134,7 @@ export function InventoryPage() {
 
 						<div className="search">
 							<SearchForm
-								placeholder="Buscar Producto"
+								placeholder="Buscar producto..."
 								onSearch={handleSearch}
 							/>
 							<AddButton message="Agregar Producto" />

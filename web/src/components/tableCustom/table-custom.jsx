@@ -29,7 +29,8 @@ export const TableCustom = (props) => {
             <div className="table">
                 <div className={`table-display-${numColumns}-header table-header`}>
                     {headerColumnsTable.map((column) => (
-                        <div className="table-header-text" key={column.id}>
+                        // <div className="table-header-text" key={column.id}>
+                        <div className={`table-header-text ${column.id == 1 ? "center-info-table" : ""}`} key={column.id}>
                             {column.title}
                         </div>
                     ))}
@@ -64,15 +65,19 @@ export const TableCustom = (props) => {
                     ))}
                 </div>
             </div>
-            <ModalCustom
-                isOpen={showModal}
-                onClose={onCloseModal}
-                page={namePage}
-                typeModal={typeAction}
-                idSelected={optionSelected}
-                headerData={headerColumnsTable}
-                totalData={infoForTable}
-            />
+
+            {showModal &&
+                <ModalCustom
+                    isOpen={showModal}
+                    onClose={onCloseModal}
+                    page={namePage}
+                    typeModal={typeAction}
+                    idSelected={optionSelected}
+                    headerData={headerColumnsTable}
+                    totalData={infoForTable}
+                />
+            }
+
         </div>
     );
 };

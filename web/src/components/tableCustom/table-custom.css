@@ -3,13 +3,13 @@
     display: grid;
     /* grid-template-columns: 18% 36% 20% 12% 13%; */ /* Original */
     grid-template-columns: 10% 25% 35% 20% 10%;
-    gap: 5px;
+    gap: 6px;
 }
 
 .table-display-5-data {
     display: grid;
     grid-template-columns: 10% 25% 35% 20% 10%;
-    gap: 5px;
+    gap: 6px;
 }
 /* -------------------------------------- */
 
@@ -76,5 +76,5 @@
 }
 
 .center-info-table {
-    padding-left: 30%;
+    text-align: center;
 }

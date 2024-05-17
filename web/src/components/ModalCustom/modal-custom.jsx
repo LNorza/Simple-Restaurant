@@ -7,6 +7,8 @@ const ModalCustom = (props) => {
     if (!isOpen) return;
 
     const dataItem = totalData.find((data) => data.id === idSelected);
+    console.log('dataItem', dataItem);
+
     const [formData, setFormData] = useState({});
     const [isDeleteModal, setIsDeleteModal] = useState(false);
     const handleInputChange = (e) => {
@@ -56,15 +58,20 @@ const ModalCustom = (props) => {
 
                 {isDeleteModal && (
                     <div className="modal-custom-form-content-delete">
-                        <p>¿Estás seguro que deseas eliminar este registro?</p>
+                        <p className="delete-title">¿Estás seguro?</p>
+
+                        <p>Estás a punto de borrar el producto {dataItem.product},
+
+                            ¿Deseas continuar?
+                        </p>
 
                         <div className="modal-custom-delete-btn">
-                            <button onClick={handleAction} className="btn btn-delete">
-                                Eliminar
-                            </button>
-
                             <button onClick={onCloseModal} className="btn btn-cancel">
                                 Cancelar
+                            </button>
+
+                            <button onClick={handleAction} className="btn btn-delete">
+                                Eliminar
                             </button>
                         </div>
                     </div>

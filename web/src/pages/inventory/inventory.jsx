@@ -130,7 +130,7 @@ export function InventoryPage() {
 
 				<div className="principal-container">
 					<div className="header-container">
-						<h2>Gestión de Invetario</h2>
+						<h2>Gestión de inventario</h2>
 
 						<div className="search">
 							<SearchForm

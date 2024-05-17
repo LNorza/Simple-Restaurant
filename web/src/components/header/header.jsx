@@ -5,15 +5,17 @@ import "./header.css";
 
 export function Header() {
 	return (
-		<div className="header">
-			<Link to="/home">
-				<div className="logo">
-					<img src={logo} alt="simpleRestaurant" />
-					<h1>SimpleRestaurant</h1>
+		<div className="header-container">
+			<div className="header">
+				<Link to="/home">
+					<div className="logo">
+						<img src={logo} alt="simpleRestaurant" />
+						<h1>SimpleRestaurant</h1>
+					</div>
+				</Link>
+				<div className="user">
+					<HeaderDropdown />
 				</div>
-			</Link>
-			<div className="user">
-				<HeaderDropdown />
 			</div>
 		</div>
 	);

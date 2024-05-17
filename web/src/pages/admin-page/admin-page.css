@@ -1,18 +1,18 @@
 .menu-container {
-    display: flex;
-    gap: 20px;
-    background-color: #f8f8f7;
+	display: flex;
+	gap: 20px;
+	background-color: #f8f8f7;
 }
 
 .principal-container {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    margin: 80px 30px;
-    gap: 80px;
-    height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	margin: 80px 30px;
+	gap: 80px;
+	height: 100%;
 }

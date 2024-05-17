@@ -129,11 +129,11 @@ export function DishesPage() {
 
 				<div className="principal-container">
 					<div className="header-container">
-						<h2>Gestión de Platillos</h2>
+						<h2>Gestión de platillos</h2>
 
 						<div className="search">
 							<SearchForm
-								placeholder="Buscar PLatillo"
+								placeholder="Buscar platillo..."
 								onSearch={handleSearch}
 							/>
 							<AddButton message="Agregar Platillo" />

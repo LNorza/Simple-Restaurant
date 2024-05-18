@@ -51,7 +51,7 @@ const ModalCustom = (props) => {
             <div onClick={onCloseModal} className="overlay"></div>
             <div className="modal-custom-container">
                 <div className="modal-custom-header">
-                    {typeModal === "update" ? `Editar ${page}` : `Eliminar ${page}`}
+                    {typeModal === "update" ? `Editar` : `Eliminar`}
                     <button onClick={onCloseModal}>✖</button>
 
                 </div>
@@ -60,10 +60,24 @@ const ModalCustom = (props) => {
                     <div className="modal-custom-form-content-delete">
                         <p className="delete-title">¿Estás seguro?</p>
 
-                        <p>Estás a punto de borrar el producto {dataItem.product},
+                        {page === "Producto" &&
+                            <p> Estás a punto de borrar el producto {dataItem.product},
+                                ¿Deseas continuar?
+                            </p>
+                        }
 
-                            ¿Deseas continuar?
-                        </p>
+                        {page === "Comandas" &&
+                            <p> Estás a punto de borrar la comanda con el numero de cuenta "{dataItem.id}",
+                                ¿Deseas continuar?
+                            </p>
+                        }
+
+                        {page === "platillo" &&
+                            <p> Estás a punto de borrar el platillo {dataItem.dish},
+                                ¿Deseas continuar?
+                            </p>
+                        }
+
 
                         <div className="modal-custom-delete-btn">
                             <button onClick={onCloseModal} className="btn btn-cancel">

@@ -146,7 +146,7 @@ export function DishesPage() {
                         headerColumnsTable={headerColumns}
                         infoForTable={tempDataInventory}
                         nColumns={4}
-                        namePage="Producto"
+                        namePage="platillo"
                     />
                 </div>
             </div>

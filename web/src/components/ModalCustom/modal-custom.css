@@ -139,6 +139,7 @@ label {
 	border: 2px solid var(--DarkerSlateGray);
 	box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
 	color: var(--DarkerSlateGray);
+	background-color: white;
 	transition: all 0.4s linear;
 }
 

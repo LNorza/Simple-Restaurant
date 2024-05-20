@@ -91,6 +91,7 @@
 	background-color: var(--white);
 	color: var(--dim-gray);
 	cursor: pointer;
+    margin-right: 12px;
 }
 
 .button img {

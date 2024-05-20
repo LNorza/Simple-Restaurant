@@ -3,10 +3,10 @@
     position: absolute;
 	font-weight: 500;
 	color: var(--dim-gray);
-	width: 850px;
+	width: 1200px;
 	height: auto;
 	background-color: var(--white);
-	padding: 20px 20px 10px 20px;
+	padding: 20px 20px 30px 20px;
 	border: 1px solid var(--smoke-white);
 	border-radius: 10px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
@@ -73,7 +73,89 @@
     cursor: pointer;
 }
 
+.numeric-keypad button:hover {
+    background-color: #dadadb;
+}
+
 .numeric-keypad button.btn-next {
     width: 98%;
     grid-column:  span 2;
+    transition: color 0.3s;
+    transition: background-color 0.3s;
+}
+
+.numeric-keypad button.btn-next:hover {
+    background-color: var(--LogoColor);
+    color: white;
+    
+}
+
+.div1 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 65;
+}
+
+/* --------------------  Create Commands Styles -------------------- */
+.main-create-command {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap : 20px;
+}
+
+.command-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #F0F1F3;
+    place-items: center;
+    text-align: center;
+    color: var(--DarkerSlateGray);
+    border-radius: 5px;
+    font-size: 0.7rem;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.command-header p {
+    width: 100px;
+}
+
+.command-option {
+    background-color: white;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid gray;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.command-option:hover {
+    background-color: #dadadb;
+}
+
+.command-option img {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.al-center {
+    margin-bottom: 10px;
+}
+
+.value-command {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.mt-4 {
+    margin-top: 8px;
 }

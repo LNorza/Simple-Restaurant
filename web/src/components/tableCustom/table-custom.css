@@ -1,3 +1,16 @@
+/* Para interfaz de Commandas (4 columnas) */
+.table-display-4-header {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	gap: 6px;
+}
+
+.table-display-4-data {
+	display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+	gap: 6px;
+}
+
 /* Para interfaz de Commandas (5 columnas) */
 .table-display-5-header.dishes {
 	display: grid;
@@ -39,6 +52,20 @@
 	grid-template-columns: 10% 25% 35% 20% 10%;
 	gap: 6px;
 }
+
+/* Para interfaz de Commandas (6 columnas) */
+.table-display-6-header {
+	display: grid;
+	/* grid-template-columns: 18% 36% 20% 12% 13%; */ /* Original */
+	grid-template-columns: 10% 55% 10% 10% 10% 5%;
+	gap: 6px;
+}
+
+.table-display-6-data {
+	display: grid;
+	grid-template-columns: 10% 55% 10% 10% 10% 5%;
+	gap: 6px;
+}
 /* -------------------------------------- */
 
 /* Para interfaz de Inventario (7 columnas) */
@@ -58,8 +85,8 @@
 .table-container {
 	background-color: var(--white);
 	height: 70%;
-	width: 96%;
-	margin: 0px 20px 35px;
+	width: 100%;
+	margin: 0 0 35px; 
 	padding: 0px 0px 35px;
 	border-radius: 12px;
 	border: 1px solid rgba(0, 0, 0, 0.091);

@@ -20,3 +20,27 @@ export const arrayAnalitycs = [
         percentage: "+201% respecto al mes pasado",
     },
 ];
+
+export const arrayAnalitycs2 = [
+    {
+        title: "Hora Pico",
+        value: "9:30 pm",
+        percentage: "",
+    },
+    {
+        title: "Hora Valle",
+        value: "6:00 pm",
+        percentage: "",
+    },
+    {
+        title: "Costo de mano de obra",
+        value: "$35,231.00",
+        percentage: "",
+    },
+    {
+        title: "Costo de Insumos",
+        value: "$50,250",
+        percentage: "",
+    },
+];
+

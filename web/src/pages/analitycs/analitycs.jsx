@@ -3,12 +3,14 @@ import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import { useEffect, useState } from "react";
 import { DatePicker } from "antd";
-import { arrayAnalitycs } from "../../utilities/arrayCardsAnalitycs.js";
+import { arrayAnalitycs, arrayAnalitycs2 } from "../../utilities/arrayCardsAnalitycs.js";
 import { DefaultCard } from "../../components/card/card.jsx";
 import "./analitycs.css";
 import { ColumnChart } from "../../components/charts/ColumnChart.jsx";
 import { PieChart } from "../../components/charts/PieChart.jsx";
 import { TableCustom } from "../../components/index.js";
+import { ColumnChart1 } from "../../components/charts/ColumnChart1.jsx";
+import { ColumnChart2 } from "../../components/charts/ColumnChart2.jsx";
 
 export function AnalitycsPage() {
     const handleDateRangeChange = (dates, dateStrings) => {
@@ -105,13 +107,22 @@ export function AnalitycsPage() {
                                 percentage={percentage}
                             />
                         ))}
-
-                        {console.log(arrayAnalitycs)}
                     </div>
 
                     <div className="chart-container">
                         <ColumnChart />
                         <PieChart />
+                    </div>
+
+                    <div className="analitycs-card-container">
+                        {arrayAnalitycs2.map(({ title, value, percentage }) => (
+                            <DefaultCard
+                                key={title}
+                                title={title}
+                                value={value}
+                                percentage={percentage}
+                            />
+                        ))}
                     </div>
 
                     <div className="analitycs-table-text">
@@ -137,6 +148,12 @@ export function AnalitycsPage() {
                         nColumns={5}
                         namePage="Analitycs"
                     />
+
+
+                    <div className="chart-container">
+                        <ColumnChart1 />
+                        <ColumnChart2 />
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ import "./tables.css";
 
 export function TablesPage() {
 	return (
-		<div>
+		<div className="commands-page">
 			<Header />
 			<div className="menu-container">
 				<Navbar />

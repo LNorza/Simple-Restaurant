@@ -1,4 +1,18 @@
 /* Para interfaz de Commandas (5 columnas) */
+.table-display-5-header.dishes {
+	display: grid;
+	/* grid-template-columns: 18% 36% 20% 12% 13%; */ /* Original */
+	grid-template-columns: 20% 30% 25% 35% 5%;
+	gap: 6px;
+}
+
+.table-display-5-data.dishes {
+	display: grid;
+	grid-template-columns: 20% 30% 25% 35% 5%;
+	gap: 6px;
+}
+
+/* Para interfaz de Commandas (5 columnas) */
 .table-display-5-header {
 	display: grid;
 	/* grid-template-columns: 18% 36% 20% 12% 13%; */ /* Original */

@@ -2,15 +2,26 @@ import React, {useEffect, useState} from "react";
 import "./modal-custom.css";
 
 const ModalCustom = (props) => {
-	const {isOpen, onClose, page, typeModal, idSelected, headerData, totalData} =
-		props;
-	if (!isOpen) return;
+	const {
+		isOpen,
+		onClose,
+		page,
+		typeModal,
+		idSelected,
+		headerData,
+		totalData,
+		deleteFunction,
+		updateFunction,
+		useIn,
+	} = props;
+
+	if (!isOpen) return null;
 
 	const dataItem = totalData.find((data) => data.id === idSelected);
-	console.log("dataItem", dataItem);
 
 	const [formData, setFormData] = useState({});
 	const [isDeleteModal, setIsDeleteModal] = useState(false);
+
 	const handleInputChange = (e) => {
 		const {name, value} = e.target;
 		setFormData({...formData, [name]: value});
@@ -19,13 +30,10 @@ const ModalCustom = (props) => {
 	const handleAction = () => {
 		if (typeModal === "update") {
 			console.log(`Realizar actualización para el ID: ${idSelected}`);
+			updateFunction(idSelected, formData); // Usar updateFunction en lugar de editFunction
 		} else if (typeModal === "delete") {
-			console.log(`Realizar eliminación para el ID: ${idSelected}`);
+			deleteFunction(idSelected);
 		}
-		onClose(); // Cerrar modal después de realizar la acción
-	};
-
-	const onCloseModal = () => {
 		onClose();
 	};
 
@@ -35,78 +43,59 @@ const ModalCustom = (props) => {
 		} else {
 			setIsDeleteModal(false);
 		}
-	}, [typeModal, dataItem]);
+	}, [typeModal]);
 
-	const addClass = (dataKey) => {
-		if (dataKey == "mesa") {
-			return "modal-custom-form-content-50 float-left";
+	useEffect(() => {
+		if (dataItem) {
+			const formDataCopy = {};
+			headerData.forEach((column) => {
+				formDataCopy[column.dataKey] = dataItem[column.dataKey];
+			});
+			setFormData(formDataCopy);
 		}
-		if (dataKey == "hora") {
-			return "modal-custom-form-content-50 float-right";
-		}
-	};
+	}, [dataItem, headerData]);
 
 	return (
 		<div className="modal-custom">
-			<div onClick={onCloseModal} className="overlay"></div>
+			<div onClick={onClose} className="overlay"></div>
 			<div className="modal-custom-container">
 				<div className="modal-custom-header">
-					{typeModal === "update" ? `Editar` : `Eliminar`}
-					<button onClick={onCloseModal}>✖</button>
+					{typeModal === "update" ? "Editar" : "Eliminar"}
+					<button onClick={onClose}>✖</button>
 				</div>
 
-				{isDeleteModal && (
+				{isDeleteModal ? (
 					<div className="modal-custom-form-content-delete">
 						<p className="delete-title">¿Estás seguro?</p>
-
-						{page === "Producto" && (
-							<p>
-								{" "}
-								Estás a punto de borrar el producto {dataItem.product}, ¿Deseas
-								continuar?
-							</p>
-						)}
-
-						{page === "Comandas" && (
-							<p>
-								{" "}
-								Estás a punto de borrar la comanda con el numero de cuenta "
-								{dataItem.id}", ¿Deseas continuar?
-							</p>
-						)}
-
-						{page === "platillo" && (
-							<p>
-								{" "}
-								Estás a punto de borrar el platillo {dataItem.NombrePlatillo},
-								¿Deseas continuar?
-							</p>
-						)}
-
+						<p>
+							Estás a punto de borrar el {page.toLowerCase()} "
+							{dataItem && dataItem[headerData[1].dataKey]}", ¿Deseas continuar?
+						</p>
 						<div className="modal-custom-delete-btn">
-							<button onClick={onCloseModal} className="btn btn-cancel">
+							<button onClick={onClose} className="btn btn-cancel">
 								Cancelar
 							</button>
-
 							<button onClick={handleAction} className="btn btn-delete">
 								Eliminar
 							</button>
 						</div>
 					</div>
-				)}
-
-				{!isDeleteModal && (
+				) : (
 					<>
 						{headerData.map((column) => (
-							<div key={`${column.id}`} className="modal-custom-form-content">
+							<div
+								key={`${column.dataKey}`}
+								className="modal-custom-form-content"
+							>
 								<div className="modal-custom-input">
 									<label htmlFor={column.dataKey}>{column.title}</label>
 									<input
 										type="text"
-										value={dataItem[column.dataKey]}
+										value={formData[column.dataKey] || ""}
 										className="form-input"
 										onChange={handleInputChange}
 										disabled={typeModal === "delete"}
+										name={column.dataKey}
 									/>
 								</div>
 							</div>

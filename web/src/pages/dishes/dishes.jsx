@@ -28,7 +28,7 @@ export function DishesPage() {
 	};
 
 	const handleSearch = (searchTerm) => {
-		console.log("Hola");
+		console.log("Buscar platillo:", searchTerm);
 	};
 
 	const openModal = () => {
@@ -41,11 +41,21 @@ export function DishesPage() {
 	};
 
 	const headerColumns = [
-		{id: 1, title: "ID", dataKey: "IDPlatillo"},
 		{id: 2, title: "Platillo", dataKey: "NombrePlatillo"},
 		{id: 3, title: "Precio", dataKey: "Precio"},
 		{id: 4, title: "Grupo", dataKey: "NombreGrupo"},
 	];
+
+	const deleteDish = async (id) => {
+		try {
+			await fetch(`${BASE_URL}/platillos/${id}`, {
+				method: "DELETE",
+			});
+			getDishes();
+		} catch (error) {
+			console.error("Error al eliminar el platillo:", error);
+		}
+	};
 
 	return (
 		<div className="commands-page">
@@ -72,6 +82,9 @@ export function DishesPage() {
 						infoForTable={dishes}
 						nColumns={4}
 						namePage="platillo"
+						deleteFunction={deleteDish}
+						useIn="dishes"
+						getFunction={getDishes}
 					/>
 				</div>
 			</div>

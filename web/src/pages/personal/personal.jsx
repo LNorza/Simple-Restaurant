@@ -6,10 +6,11 @@ import "./personal.css";
 import UpdateModal from "../../components/employee-modal/UpdateModal.jsx";
 import {usePersonalDB} from "../../hooks/usePersonalDB.js";
 import AddModalPersonal from "../../components/add-modal/add-modal-personal.jsx";
-import DeletePersonal from "../../components/delete-modals/delete-personal.jsx";
+import DeleteModal from "../../components/delete-modals/delete-modal.jsx";
 import {Loading} from "../../components/Loading/Loading.jsx";
 import {CirclePlus} from "lucide-react";
 import {SearchForm} from "../../components/search-form/search-form.jsx";
+import {BASE_URL} from "../../utilities/petitionConst.js";
 
 export function PersonalPage() {
 	const [personal, setPersonal] = useState([]);
@@ -17,9 +18,9 @@ export function PersonalPage() {
 	const [isLoading, setLoading] = useState(true); // Estado para controlar la carga
 
 	async function fetchData() {
-		const result = await fetch(
-			"https://simplerestaurant-api-production.up.railway.app/api/employees"
-		).then((response) => response.json());
+		const result = await fetch(`${BASE_URL}/employees`).then((response) =>
+			response.json()
+		);
 		setPersonal(result);
 		setOriginalPersonal(result);
 		setLoading(false); // Una vez que se cargan los datos, establece loading en false
@@ -83,6 +84,17 @@ export function PersonalPage() {
 		setSelectedEmployeeName("");
 		fetchData();
 	}
+
+	const deleteEmployee = async (employeeID) => {
+		try {
+			const response = await fetch(`${BASE_URL}/employees/${employeeID}`, {
+				method: "DELETE",
+			});
+			fetchData();
+		} catch (error) {
+			console.error("Error al eliminar el empleado:", error);
+		}
+	};
 
 	return (
 		<div className="personal-page">
@@ -165,10 +177,11 @@ export function PersonalPage() {
 			{showAddModal && <AddModalPersonal onClose={handleCloseAddModal} />}
 
 			{showDeleteModal && (
-				<DeletePersonal
+				<DeleteModal
 					onClose={handleCloseDeleteModal}
 					employeeID={selectedEmployee}
-					employeeName={selectedEmployeeName}
+					message={`el empleado ${selectedEmployeeName}`}
+					deleteFunction={deleteEmployee}
 				/>
 			)}
 		</div>

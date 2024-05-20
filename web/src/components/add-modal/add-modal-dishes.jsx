@@ -1,35 +1,50 @@
 import React, {useState} from "react";
 import CustomSelect from "../custom-select/custom-select";
+import {BASE_URL} from "../../utilities/petitionConst.js";
 
-const AddModalDishes = ({onClose, onSave}) => {
+const AddModalDishes = ({onClose}) => {
 	const [clave, setClave] = useState("");
 	const [dish, setDish] = useState("");
 	const [group, setGroup] = useState("");
 	const [price, setPrice] = useState("");
 
 	const statusOptions = [
-		{value: "appetizer", label: "Entradas"},
-		{value: "main", label: "Plato fuerte"},
-		{value: "dessert", label: "Postres"},
-		{value: "drink", label: "Bebidas"},
-		{value: "coctelery", label: "Coctelería"},
-		{value: "other", label: "Otros"},
+		{value: "1", label: "Entradas"},
+		{value: "2", label: "Platos principales"},
+		{value: "3", label: "Postres"},
+		{value: "4", label: "Bebidas"},
+		{value: "5", label: "Coctelería"},
+		{value: "6", label: "Otros"},
 	];
 
 	const handleSave = () => {
 		const newDish = {
-			clave,
-			dish,
-			group,
-			price: parseFloat(price),
+			NombrePlatillo: dish,
+			Precio: price,
+			Grupo: group,
 		};
-		onSave(newDish);
+
+		fetch(`${BASE_URL}/platillos`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(newDish),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log("Nuevo platillo creado:", data);
+				onClose(); // Cerrar el modal después de guardar exitosamente
+			})
+			.catch((error) => {
+				console.error("Error al guardar el platillo:", error);
+			});
 	};
 
 	const selectGroup = (option) => {
-		setGroup(option.label);
-		console.log(option);
+		setGroup(option.value);
 	};
+
 	return (
 		<div className="modal-custom">
 			<div onClick={onClose} className="overlay"></div>
@@ -40,15 +55,6 @@ const AddModalDishes = ({onClose, onSave}) => {
 				</div>
 				<div className="modal-custom-form-content">
 					<div className="modal-custom-input">
-						<span>Clave</span>
-						<input
-							type="text"
-							className="form-input"
-							value={clave}
-							onChange={(e) => setClave(e.target.value)}
-						/>
-					</div>
-					<div className="modal-custom-input">
 						<span>Platillo</span>
 						<input
 							type="text"
@@ -58,19 +64,19 @@ const AddModalDishes = ({onClose, onSave}) => {
 						/>
 					</div>
 					<div className="modal-custom-input">
-						<span>Grupo</span>
-						<CustomSelect
-							options={statusOptions}
-							onOptionChange={selectGroup}
-						/>
-					</div>
-					<div className="modal-custom-input">
 						<span>Precio</span>
 						<input
 							type="text"
 							className="form-input"
 							value={price}
 							onChange={(e) => setPrice(e.target.value)}
+						/>
+					</div>
+					<div className="modal-custom-input">
+						<span>Grupo</span>
+						<CustomSelect
+							options={statusOptions}
+							onOptionChange={selectGroup}
 						/>
 					</div>
 				</div>

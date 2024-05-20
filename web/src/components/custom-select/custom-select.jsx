@@ -2,8 +2,8 @@ import React, {useState, useRef, useEffect} from "react";
 import "./custom-select.css";
 import {ChevronDown, Check} from "lucide-react";
 
-const CustomSelect = ({options, onOptionChange}) => {
-	const [selected, setSelected] = useState("Entradas");
+const CustomSelect = ({options, onOptionChange, initialValue}) => {
+	const [selected, setSelected] = useState(initialValue || options[0].label);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
 	const dropdownRef = useRef(null);
@@ -38,6 +38,13 @@ const CustomSelect = ({options, onOptionChange}) => {
 			document.removeEventListener("mousedown", handleOutsideClick);
 		};
 	}, []);
+
+	// Utiliza un efecto para establecer el valor inicial
+	useEffect(() => {
+		if (initialValue !== undefined) {
+			setSelected(initialValue);
+		}
+	}, [initialValue]);
 
 	return (
 		<div

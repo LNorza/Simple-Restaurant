@@ -138,7 +138,7 @@ export function AnalitycsPage() {
                     />
 
                     <div className="analitycs-table-text">
-                        <h2>Platillos menos vendidos</h2>
+                        <h2>Platillos menos Vendidos</h2>
                     </div>
 
                     <TableCustom

@@ -1,28 +1,34 @@
 .modal-custom {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99999999;
 }
 
 .modal-custom-container {
-    position: absolute;
-    font-weight: 500;
-    color: var(--dim-gray);
-    width: 500px;
-    height: auto;
-    background-color: var(--white);
-    padding: 20px 20px 10px 20px;
-    border: 1px solid var(--smoke-white);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+	position: absolute;
+	font-weight: 500;
+	color: var(--dim-gray);
+	width: 500px;
+	height: auto;
+	background-color: var(--white);
+	padding: 20px 20px 10px 20px;
+	border: 1px solid var(--smoke-white);
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .modal-custom-header {
+	display: flex;
+	color: var(--light-steel);
+	justify-content: space-between;
+	margin-bottom: 20px;
+	font-size: 1.3rem;
     display: flex;
     color: var(--light-steel);
     justify-content: space-between;
@@ -32,118 +38,120 @@
 }
 
 .modal-custom-header button {
-    border: none;
-    font-size: 1.4rem;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.2s linear;
+	border: none;
+	font-size: 1.4rem;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all 0.2s linear;
 }
 
 .modal-custom-header button:hover {
-    color: red;
-    transform: scale(1.2);
+	color: red;
+	transform: scale(1.2);
 }
 
 .modal-custom-form-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 5px;
-    margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 5px;
+	margin-bottom: 10px;
 }
 
 .modal-custom-form-content-50 {
-    display: flex;
-    width: 50%;
+	display: flex;
+	width: 50%;
 }
 
 label {
-    font-size: 1rem;
-    font-weight: 550;
-    margin-bottom: 2px;
+	font-size: 1rem;
+	font-weight: 550;
+	margin-bottom: 2px;
 }
 
 .modal-custom-content-inputs {
-    width: 50%;
+	width: 50%;
 }
 
 .modal-custom-input {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 .float-left {
-    float: left;
+	float: left;
 }
 
 .float-right {
-    float: right;
+	float: right;
 }
 
 .form-custom-button-container {
-    float: right;
+	float: right;
 }
 
 .form-custom-button {
-    width: 150px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--DarkerSlateGray);
-    border: 1px solid var(--DarkerSlateGray);
-    color: var(--white);
-    border-radius: 5px;
-    padding: 20px 25px;
-    cursor: pointer;
+	width: 150px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--DarkerSlateGray);
+	border: 1px solid var(--DarkerSlateGray);
+	color: var(--white);
+	border-radius: 5px;
+	padding: 20px 25px;
+	cursor: pointer;
 }
 
 .form-custom-button:hover {
-    transition: all 0.5s ease-in-out;
-    border: 1px solid var(--SlateGray);
-    filter: brightness(145%);
+	transition: all 0.5s ease-in-out;
+	border: 1px solid var(--SlateGray);
+	filter: brightness(145%);
 }
 
 .modal-custom-form-content-delete {
-    color: var(--light-steel);
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 4px;
+	color: var(--light-steel);
+	font-size: 1.2rem;
+	font-weight: 500;
+	padding: 4px;
 }
 
 .modal-custom-form-content-delete p {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 36px;
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 36px;
 }
 
 .delete-title {
-    text-align: center;
-    font-size: 1.3rem;
+	text-align: center;
+	font-size: 1.3rem;
 }
 
 .modal-custom-delete-btn {
-    display: flex;
-    justify-content: space-between;
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .btn {
-    width: 150px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    padding: 8px 16px;
-    font-size: 1rem;
-    margin: 5px;
-    border-radius: 0.25rem;
-    border: 2px solid var(--DarkerSlateGray);
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
-    color: var(--DarkerSlateGray);
-    background-color: white;
-    transition: all 0.4s linear;
+	width: 150px;
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	padding: 8px 16px;
+	font-size: 1rem;
+	margin: 5px;
+	border-radius: 0.25rem;
+	border: 2px solid var(--DarkerSlateGray);
+	box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+	color: var(--DarkerSlateGray);
+	background-color: white;
+	transition: all 0.4s linear;
 }
 
 .btn-delete {
-    color: white;
-    background-color: var(--DarkerSlateGray);
+	color: white;
+	background-color: var(--DarkerSlateGray);
 }

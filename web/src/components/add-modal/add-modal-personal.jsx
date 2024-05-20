@@ -1,9 +1,8 @@
-import {useEffect, useState} from "react";
-import {BASE_URL} from "../../utilities/petitionConst";
+import React, {useState} from "react";
 import CustomSelect from "../custom-select/custom-select";
-import "./UpdateModal.css";
+import {BASE_URL} from "../../utilities/petitionConst.js";
 
-const UpdateModal = ({onClose, employeeID}) => {
+const AddModalPersonal = ({onClose}) => {
 	const [name, setName] = useState("");
 	const [job, setJob] = useState("");
 	const [jobID, setJobID] = useState(1);
@@ -13,6 +12,8 @@ const UpdateModal = ({onClose, employeeID}) => {
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
 	const [email, setEmail] = useState("");
+	const [date, setDate] = useState("");
+	const [salary, setSalary] = useState("");
 
 	const statusOptions = [
 		{value: "1", label: "Chef"},
@@ -22,32 +23,9 @@ const UpdateModal = ({onClose, employeeID}) => {
 		{value: "5", label: "Gerente"},
 	];
 
-	useEffect(() => {
-		getEmployee(employeeID);
-	}, [employeeID]);
-
-	const getEmployee = (employeeID) => {
-		fetch(`${BASE_URL}/employees/${employeeID}`)
-			.then((response) => response.json())
-			.then((data) => {
-				setName(data.NombreEmp);
-				setJob(data.NombrePuesto);
-				setJobID(data.IDPuesto);
-				setLastName(data.ApellidosEmp);
-				setNss(data.NSS);
-				setRfc(data.RFC);
-				setPhone(data.Telefono);
-				setAddress(data.Direccion);
-				setEmail(data.Email);
-			})
-			.catch((error) => {
-				console.error("Error fetching employee:", error);
-			});
-	};
-
-	const updateEmployee = () => {
-		console.log("IDPuesto:", jobID);
-		const updatedEmployee = {
+	const addEmployee = () => {
+		const currentDate = new Date().toISOString().slice(0, 10);
+		const newEmployee = {
 			NombreEmp: name,
 			IDPuesto: jobID,
 			ApellidosEmp: lastName,
@@ -56,22 +34,24 @@ const UpdateModal = ({onClose, employeeID}) => {
 			Telefono: phone,
 			Direccion: address,
 			Email: email,
+			FechaContratacion: currentDate,
+			Salario: salary,
 		};
 
-		fetch(`${BASE_URL}/employees/${employeeID}`, {
-			method: "PATCH",
+		fetch(`${BASE_URL}/employees`, {
+			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify(updatedEmployee),
+			body: JSON.stringify(newEmployee), // Cambiado de newDish a newEmployee
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log("Employee updated successfully:", data);
-				onClose();
+				console.log("Nuevo empleado creado:", data);
+				onClose(); // Cerrar el modal después de guardar exitosamente
 			})
 			.catch((error) => {
-				console.error("Error updating employee:", error);
+				console.error("Error al guardar el empleado:", error);
 			});
 	};
 
@@ -90,7 +70,7 @@ const UpdateModal = ({onClose, employeeID}) => {
 			<div onClick={onCloseModal} className="overlay"></div>
 			<div className="modal-container">
 				<div className="modal-header">
-					Editar empleado
+					Agregar empleado
 					<button onClick={onCloseModal}>✖</button>
 				</div>
 
@@ -120,7 +100,6 @@ const UpdateModal = ({onClose, employeeID}) => {
 						<CustomSelect
 							options={statusOptions}
 							onOptionChange={selectGroup}
-							initialValue={job}
 						/>
 					</div>
 					<div className="container-inputs-emp">
@@ -164,21 +143,30 @@ const UpdateModal = ({onClose, employeeID}) => {
 							/>
 						</div>
 					</div>
-					<label htmlFor="email">Email</label>
-					<input
-						type="text"
-						className="form-input"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
+					<div className="container-inputs-emp">
+						<div>
+							<label htmlFor="email">Email</label>
+							<input
+								type="text"
+								className="form-input"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</div>
+						<div>
+							<label htmlFor="email">Salario</label>
+							<input
+								type="text"
+								className="form-input"
+								value={salary}
+								onChange={(e) => setSalary(e.target.value)}
+							/>
+						</div>
+					</div>
 				</div>
 				<div className="form-button-container">
-					<button
-						type="submit"
-						className="form-button"
-						onClick={updateEmployee}
-					>
-						Actualizar empleado
+					<button type="submit" className="form-button" onClick={addEmployee}>
+						Agregar empleado
 					</button>
 				</div>
 			</div>
@@ -186,4 +174,4 @@ const UpdateModal = ({onClose, employeeID}) => {
 	);
 };
 
-export default UpdateModal;
+export default AddModalPersonal;

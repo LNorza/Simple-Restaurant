@@ -3,11 +3,14 @@ import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import {Trash2, SquarePen} from "lucide-react";
 import "./personal.css";
-import {UpdateModal} from "../../components/employee-modal/UpdateModal.jsx";
+import UpdateModal from "../../components/employee-modal/UpdateModal.jsx";
 import {usePersonalDB} from "../../hooks/usePersonalDB.js";
+import AddModalPersonal from "../../components/add-modal/add-modal-personal.jsx";
+import DeleteModal from "../../components/delete-modals/delete-modal.jsx";
 import {Loading} from "../../components/Loading/Loading.jsx";
-import {AddButton} from "../../components/add-button/add-button.jsx";
+import {CirclePlus} from "lucide-react";
 import {SearchForm} from "../../components/search-form/search-form.jsx";
+import {BASE_URL} from "../../utilities/petitionConst.js";
 
 export function PersonalPage() {
 	const [personal, setPersonal] = useState([]);
@@ -15,9 +18,9 @@ export function PersonalPage() {
 	const [isLoading, setLoading] = useState(true); // Estado para controlar la carga
 
 	async function fetchData() {
-		const result = await fetch(
-			"https://simplerestaurant-api-production.up.railway.app/api/employees"
-		).then((response) => response.json());
+		const result = await fetch(`${BASE_URL}/employees`).then((response) =>
+			response.json()
+		);
 		setPersonal(result);
 		setOriginalPersonal(result);
 		setLoading(false); // Una vez que se cargan los datos, establece loading en false
@@ -29,7 +32,10 @@ export function PersonalPage() {
 
 	const allEmployees = originalPersonal;
 	const [showModal, setShowModal] = useState(false);
+	const [showAddModal, setShowAddModal] = useState(false);
 	const [selectedEmployee, setSelectedEmployee] = useState(null);
+	const [showDeleteModal, setShowDeleteModal] = useState(false);
+	const [selectedEmployeeName, setSelectedEmployeeName] = useState("");
 
 	const handleSearch = (searchTerm) => {
 		console.log(allEmployees);
@@ -54,7 +60,41 @@ export function PersonalPage() {
 	function handleCloseModal() {
 		setShowModal(false);
 		setSelectedEmployee(null);
+		fetchData();
 	}
+
+	const handleOpenAddModal = () => {
+		setShowAddModal(true);
+	};
+
+	function handleCloseAddModal() {
+		setShowAddModal(false);
+		fetchData();
+	}
+
+	function handleOpenDeleteModal(employeeID, employeeName) {
+		setSelectedEmployee(employeeID);
+		setSelectedEmployeeName(employeeName);
+		setShowDeleteModal(true);
+	}
+
+	function handleCloseDeleteModal() {
+		setShowDeleteModal(false);
+		setSelectedEmployee(null);
+		setSelectedEmployeeName("");
+		fetchData();
+	}
+
+	const deleteEmployee = async (employeeID) => {
+		try {
+			const response = await fetch(`${BASE_URL}/employees/${employeeID}`, {
+				method: "DELETE",
+			});
+			fetchData();
+		} catch (error) {
+			console.error("Error al eliminar el empleado:", error);
+		}
+	};
 
 	return (
 		<div className="personal-page">
@@ -70,7 +110,10 @@ export function PersonalPage() {
 								placeholder="Buscar empleado..."
 								onSearch={handleSearch}
 							/>
-							<AddButton message="Agregar Empleado" />
+							<button className="add-button" onClick={handleOpenAddModal}>
+								<CirclePlus size={20} />
+								Agregar empleado
+							</button>
 						</div>
 					</div>
 
@@ -78,6 +121,7 @@ export function PersonalPage() {
 						<div className="tabla">
 							<div className="tabla-encabezado">
 								<div className="texto-encabezado">Nombre</div>
+								<div className="texto-encabezado">Puesto</div>
 								<div className="texto-encabezado">NSS</div>
 								<div className="texto-encabezado">RFC</div>
 								<div className="texto-encabezado">Telefono</div>
@@ -93,6 +137,7 @@ export function PersonalPage() {
 											<span>
 												{employee.NombreEmp} {employee.ApellidosEmp}
 											</span>
+											<span>{employee.NombrePuesto}</span>
 											<span>{employee.NSS}</span>
 											<span>{employee.RFC}</span>
 											<span>{employee.Telefono}</span>
@@ -103,11 +148,17 @@ export function PersonalPage() {
 												>
 													<SquarePen size={28} color="#294B69" />
 												</button>
-												<button
-													className="button"
-													onClick={() => handleOpenModal(employee.IDEmpleado)}
-												>
-													<Trash2 color="#294B69" size={28} />
+												<button className="button">
+													<Trash2
+														color="#294B69"
+														size={28}
+														onClick={() =>
+															handleOpenDeleteModal(
+																employee.IDEmpleado,
+																employee.NombreEmp
+															)
+														}
+													/>
 												</button>
 											</div>
 										</div>
@@ -119,11 +170,20 @@ export function PersonalPage() {
 				</div>
 			</div>
 
-			<UpdateModal
-				isOpen={showModal}
-				onClose={handleCloseModal}
-				employeeID={selectedEmployee}
-			/>
+			{showModal && (
+				<UpdateModal onClose={handleCloseModal} employeeID={selectedEmployee} />
+			)}
+
+			{showAddModal && <AddModalPersonal onClose={handleCloseAddModal} />}
+
+			{showDeleteModal && (
+				<DeleteModal
+					onClose={handleCloseDeleteModal}
+					employeeID={selectedEmployee}
+					message={`el empleado ${selectedEmployeeName}`}
+					deleteFunction={deleteEmployee}
+				/>
+			)}
 		</div>
 	);
 }

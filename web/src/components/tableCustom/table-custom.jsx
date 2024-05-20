@@ -5,6 +5,7 @@ import "./table-custom.css";
 import ModalCustom from "../ModalCustom/modal-custom";
 import DeleteModal from "../delete-modals/delete-modal";
 import UpdateDishesModal from "../edit-modal/edit-modal-dishes";
+import EditProductsModal from "../edit-modal/edit-modal-inventory";
 
 export const TableCustom = (props) => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +33,7 @@ export const TableCustom = (props) => {
 	}
 
 	function onCloseModal() {
-		if (useIn === "dishes") {
+		if (useIn === "dishes" || useIn === "inventory") {
 			getFunction();
 		}
 		setTypeAction(null);
@@ -125,7 +126,7 @@ export const TableCustom = (props) => {
 			)}
 
 			{showModal && useIn === "inventory" && typeAction === "update" && (
-				<UpdateDishesModal dishID={optionSelected} onClose={onCloseModal} />
+				<EditProductsModal productID={optionSelected} onClose={onCloseModal} />
 			)}
 
 			{showModal && useIn === "inventory" && typeAction === "delete" && (

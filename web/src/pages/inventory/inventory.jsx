@@ -53,7 +53,7 @@ export function InventoryPage() {
 			await fetch(`${BASE_URL}/products/${id}`, {
 				method: "DELETE",
 			});
-			getDishes();
+			getProducts();
 		} catch (error) {
 			console.error("Error al eliminar el platillo:", error);
 		}

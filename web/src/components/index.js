@@ -1,4 +1,4 @@
-export * from './add-elements/AddElement.jsx'
+export * from './add-commands/AddCommand.jsx'
 export * from './card/card.jsx'
 export * from './Loading/Loading.jsx'
 export * from './ModalCustom/modal-custom.jsx'

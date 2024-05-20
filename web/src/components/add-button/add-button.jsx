@@ -1,7 +1,7 @@
 import { CirclePlus } from "lucide-react";
 import "./add-button.css";
 import { useState } from "react";
-import { AddElement } from "../add-elements/AddElement";
+import { AddCommand } from "../add-commands/AddCommand";
 
 export function AddButton({ message, namePage }) {
     const [showModal, setShowModal] = useState(false);
@@ -27,7 +27,7 @@ export function AddButton({ message, namePage }) {
 
 
             {showModal && (
-                <AddElement
+                <AddCommand
                     isOpen={showModal}
                     onClose={onCloseModal}
                     page={namePage}

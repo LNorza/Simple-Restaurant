@@ -70,7 +70,7 @@ const AddModalPersonal = ({onClose}) => {
 			<div onClick={onCloseModal} className="overlay"></div>
 			<div className="modal-container">
 				<div className="modal-header">
-					Editar empleado
+					Agregar empleado
 					<button onClick={onCloseModal}>✖</button>
 				</div>
 

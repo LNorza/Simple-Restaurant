@@ -75,7 +75,7 @@ const UpdateDishesModal = ({onClose, dishID}) => {
 			<div onClick={onClose} className="overlay"></div>
 			<div className="modal-custom-container">
 				<div className="modal-custom-header">
-					Agregar platillo
+					Editar platillo
 					<button onClick={onClose}>✖</button>
 				</div>
 				<div className="modal-custom-form-content">

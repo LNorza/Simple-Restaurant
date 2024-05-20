@@ -3,9 +3,10 @@ import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import "./inventory.css";
 import {SearchForm} from "../../components/search-form/search-form.jsx";
-import {AddButton} from "../../components/add-button/add-button.jsx";
+import {CirclePlus} from "lucide-react";
 import TableCustom from "../../components/tableCustom/table-custom.jsx";
 import {BASE_URL} from "../../utilities/petitionConst.js";
+import AddModalProducts from "../../components/add-modal/add-modal-products.jsx";
 
 export function InventoryPage() {
 	const [openAddModal, setOpenAddModal] = useState(false);
@@ -73,7 +74,10 @@ export function InventoryPage() {
 								placeholder="Buscar producto..."
 								onSearch={handleSearch}
 							/>
-							<AddButton message="Agregar Producto" />
+							<button className="add-button" onClick={openModal}>
+								<CirclePlus size={20} />
+								Agregar producto
+							</button>
 						</div>
 					</div>
 
@@ -83,13 +87,14 @@ export function InventoryPage() {
 						headerColumnsTable={headerColumns}
 						infoForTable={products}
 						nColumns={4}
-						namePage="platillo"
+						namePage="inventario"
 						deleteFunction={deleteProduct}
 						useIn="inventory"
 						getFunction={getProducts}
 					/>
 				</div>
 			</div>
+			{openAddModal && <AddModalProducts onClose={closeModal} />}
 		</div>
 	);
 }

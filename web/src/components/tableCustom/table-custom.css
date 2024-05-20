@@ -13,6 +13,20 @@
 }
 
 /* Para interfaz de Commandas (5 columnas) */
+.table-display-5-header.inventory {
+	display: grid;
+	/* grid-template-columns: 18% 36% 20% 12% 13%; */ /* Original */
+	grid-template-columns: 20% 20% 13% 13% 12% 25%;
+	gap: 6px;
+}
+
+.table-display-5-data.inventory {
+	display: grid;
+	grid-template-columns: 20% 20% 15% 15% 10% 25%;
+	gap: 6px;
+}
+
+/* Para interfaz de Commandas (5 columnas) */
 .table-display-5-header {
 	display: grid;
 	/* grid-template-columns: 18% 36% 20% 12% 13%; */ /* Original */

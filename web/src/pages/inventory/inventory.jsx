@@ -1,126 +1,62 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Header from "../../components/header/header.jsx";
 import Navbar from "../../components/navbar/navbar.jsx";
 import "./inventory.css";
 import {SearchForm} from "../../components/search-form/search-form.jsx";
 import {AddButton} from "../../components/add-button/add-button.jsx";
 import TableCustom from "../../components/tableCustom/table-custom.jsx";
+import {BASE_URL} from "../../utilities/petitionConst.js";
 
 export function InventoryPage() {
+	const [openAddModal, setOpenAddModal] = useState(false);
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		getProducts();
+	}, []);
+
+	const getProducts = () => {
+		fetch(`${BASE_URL}/products`)
+			.then((response) => response.json())
+			.then((data) => {
+				setProducts(data);
+			})
+			.catch((error) => {
+				console.error("Error fetching dishes:", error);
+			});
+	};
+
 	const handleSearch = (searchTerm) => {
 		console.log("Hola");
-		// const searchedEmployees = allEmployees.filter(
-		//     (employee) =>
-		//         employee.NombreEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
-		//         employee.ApellidosEmp.toLowerCase().includes(searchTerm.toLowerCase()) ||
-		//         employee.NSS.toLowerCase().includes(searchTerm.toLowerCase()) ||
-		//         employee.RFC.toLowerCase().includes(searchTerm.toLowerCase()) ||
-		//         employee.Telefono.toLowerCase().includes(searchTerm.toLowerCase())
-		// );
-		// setPersonal(searchedEmployees);
+	};
+
+	const openModal = () => {
+		setOpenAddModal(true);
+	};
+
+	const closeModal = () => {
+		getProducts();
+		setOpenAddModal(false);
 	};
 
 	const headerColumns = [
-		{id: 1, title: "Clave", dataKey: "clave"},
-		{id: 2, title: "Producto", dataKey: "product"},
-		{id: 3, title: "Proveedor", dataKey: "supplier"},
-		{id: 4, title: "Costo unitario", dataKey: "costUnitary"},
-		{id: 5, title: "Unidad de medida", dataKey: "unitMedition"},
-		{id: 6, title: "Cantidad en físico", dataKey: "physicalUnit"},
+		{id: 2, title: "Producto", dataKey: "NombreProducto"},
+		{id: 3, title: "Proveedor", dataKey: "NombreProveedor"},
+		{id: 4, title: "Costo unitario", dataKey: "Precio"},
+		{id: 5, title: "Unidad de medida", dataKey: "Unidad"},
+		{id: 6, title: "Cantidad en físico", dataKey: "Cantidad"},
 	];
 
-	const tempDataInventory = [
-		{
-			id: 1,
-			clave: 1,
-			product: "Bolsa de azúcar",
-			supplier: "Zulka",
-			costUnitary: 20,
-			unitMedition: "PZA",
-			physicalUnit: 10,
-		},
-		{
-			id: 2,
-			clave: 2,
-			product: "Refresco de cola",
-			supplier: "Coca Cola",
-			costUnitary: 40,
-			unitMedition: "PZA",
-			physicalUnit: 50,
-		},
-		{
-			id: 3,
-			clave: 3,
-			product: "Tomate",
-			supplier: "Fruteria Garmendia",
-			costUnitary: 54,
-			unitMedition: "KG",
-			physicalUnit: 4.3,
-		},
-		{
-			id: 4,
-			clave: 4,
-			product: "Harina",
-			supplier: "Maseca",
-			costUnitary: 15,
-			unitMedition: "KG",
-			physicalUnit: 6,
-		},
-		{
-			id: 5,
-			clave: 5,
-			product: "Aceite",
-			supplier: "Capullo",
-			costUnitary: 40,
-			unitMedition: "L",
-			physicalUnit: 20,
-		},
-		{
-			id: 6,
-			clave: 6,
-			product: "Carne de res",
-			supplier: "Carniceria El Ranchito",
-			costUnitary: 120,
-			unitMedition: "KG",
-			physicalUnit: 15,
-		},
-		{
-			id: 7,
-			clave: 7,
-			product: "Papas",
-			supplier: "Fruteria Garmendia",
-			costUnitary: 30,
-			unitMedition: "KG",
-			physicalUnit: 10,
-		},
-		{
-			id: 8,
-			clave: 8,
-			product: "Pan",
-			supplier: "Bimbo",
-			costUnitary: 20,
-			unitMedition: "PZA",
-			physicalUnit: 30,
-		},
-		{
-			id: 9,
-			clave: 9,
-			product: "Cerveza",
-			supplier: "Corona",
-			costUnitary: 25,
-			unitMedition: "L",
-			physicalUnit: 40,
-		},
-		{
-			id: 10,
-			clave: 10,
-			product: "Leche",
-			supplier: "Lala",
-			costUnitary: 15,
-			unitMedition: "L",
-			physicalUnit: 20,
-		},
-	];
+	const deleteProduct = async (id) => {
+		try {
+			await fetch(`${BASE_URL}/products/${id}`, {
+				method: "DELETE",
+			});
+			getDishes();
+		} catch (error) {
+			console.error("Error al eliminar el platillo:", error);
+		}
+	};
 
 	return (
 		<div className="commands-page">
@@ -145,9 +81,12 @@ export function InventoryPage() {
 					<TableCustom
 						mainPage="commands"
 						headerColumnsTable={headerColumns}
-						infoForTable={tempDataInventory}
-						nColumns={6}
-						namePage="Producto"
+						infoForTable={products}
+						nColumns={4}
+						namePage="platillo"
+						deleteFunction={deleteProduct}
+						useIn="inventory"
+						getFunction={getProducts}
 					/>
 				</div>
 			</div>

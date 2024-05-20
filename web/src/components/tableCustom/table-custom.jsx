@@ -79,29 +79,29 @@ export const TableCustom = (props) => {
 							<div className="boton-container">
 								<button
 									className="button"
-									onClick={() =>
-										useIn === "dishes"
-											? onOpenModal(
-													row.IDPlatillo,
-													row.NombrePlatillo,
-													"update"
-											  )
-											: onOpenModal(row.id, row.name, "update")
-									}
+									onClick={() => {
+										if (useIn === "dishes") {
+											onOpenModal(row.IDPlatillo, row.NombrePlatillo, "update");
+										} else if (useIn === "inventory") {
+											onOpenModal(row.IDProducto, row.NombreProducto, "update");
+										} else {
+											onOpenModal(row.id, row.name, "update");
+										}
+									}}
 								>
 									<SquarePen size={28} color="#294B69" />
 								</button>
 								<button
 									className="button"
-									onClick={() =>
-										useIn === "dishes"
-											? onOpenModal(
-													row.IDPlatillo,
-													row.NombrePlatillo,
-													"delete"
-											  )
-											: onOpenModal(row.id, row.name, "delete")
-									}
+									onClick={() => {
+										if (useIn === "dishes") {
+											onOpenModal(row.IDPlatillo, row.NombrePlatillo, "delete");
+										} else if (useIn === "inventory") {
+											onOpenModal(row.IDProducto, row.NombreProducto, "delete");
+										} else {
+											onOpenModal(row.id, row.name, "delete");
+										}
+									}}
 								>
 									<Trash2 color="#294B69" size={28} />
 								</button>
@@ -124,7 +124,20 @@ export const TableCustom = (props) => {
 				/>
 			)}
 
-			{showModal && useIn !== "dishes" && (
+			{showModal && useIn === "inventory" && typeAction === "update" && (
+				<UpdateDishesModal dishID={optionSelected} onClose={onCloseModal} />
+			)}
+
+			{showModal && useIn === "inventory" && typeAction === "delete" && (
+				<DeleteModal
+					message={`el producto ${nameSelected}, ¿Deseas continuar?`}
+					employeeID={optionSelected}
+					onClose={onCloseModal}
+					deleteFunction={deleteFunction}
+				/>
+			)}
+
+			{showModal && useIn !== "dishes" && useIn !== "inventory" && (
 				<ModalCustom
 					isOpen={showModal}
 					onClose={onCloseModal}
